@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 require('dotenv').config();
 
@@ -54,7 +55,7 @@ app.post('/login', (req, res) => {
     });
 });
 app.get('/dogs', (req, res) => {
-    // 
+    //
 })
 
 // Export the app instead of listening here
