@@ -74,7 +74,9 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/dogs', (req, res) => {
-    db.query(sq)
+    // SQL query to get all dogs
+    const get_ = 'SELECT * FROM Dogs';
+    db.query(s)
 })
 
 // Export the app instead of listening here
