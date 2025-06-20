@@ -45,8 +45,7 @@ app.get('/dogs', async (req, res) => {
             SELECT Dogs.name, Dogs.size, Users.username AS owner, Dogs.breed, Dogs.age, Dogs.description
             FROM Dogs
             JOIN Users ON Dogs.owner_id = Users.user_id
-            `
-        );
+        `);
         res.json(dogs_data);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch data' });
