@@ -108,19 +108,8 @@
             }
             .then(response => response.json())
             .then(data =>{
-              data.forEach(dog => {
-                this.dogs.push({
-                  id: dog.id,
-                  name: dog.name,
-                  breed: dog.breed,
-                  owner: dog.owner
-                });
-              })
+              alert('Dogs Data: ' + data.message);
             })
-          .catch(error => {
-            console.error('Error fetching dogs:', error);
-            alert('Error fetching dogs: ' + error.message);
-          })
           })
         }
       },
