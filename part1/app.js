@@ -70,7 +70,10 @@ app.get('/walkrequests/open', async (req, res) => {
 // Route to walkers summary as JSON
 app.get('/walkers/summary', async (req, res) => {
     try {
-        const [users] = await db.execute('SELECT * FROM WalkRatings');
+        const [users] = await db.execute(`
+            SELECT *
+            FROM WalkRatings`
+        );
         res.json(users);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch data' });
