@@ -68,29 +68,29 @@
   </style>
 </head>
 <body>
-  <div id="app">
-    <div class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="dogs">Dogs List</a></li>
-            <li><a href="/walkrequests/open">Dogs Services</a></li>
-            <li><a href="/walkers/summary">Walkers Summary</a></li>
-            <li><button @click="alertDetails">Dog Details</button></li>
-        </ul>
+    <div id="app">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dogs">Dogs List</a></li>
+                <li><a href="/walkrequests/open">Dogs Services</a></li>
+                <li><a href="/walkers/summary">Walkers Summary</a></li>
+                <li><button @click="alertDetails">Dog Details</button></li>
+            </ul>
+        </div>
+        <h1>Dog Walking Service - Dog of the Day !!!</h1>
+        <div class="dog-info" role="region" aria-label="Dog of the day details">
+        <img :src="dogImage" />
+        <div class="info-text">
+            <h2>Dog Name: <span>{{ dog_Name }}</span></h2>
+            <p><strong>Breed:</strong> {{ dog_Breed }}</p>
+            <p><strong>Age:</strong> {{ dog_Age }}</p>
+            <p><strong>Description:</strong> {{ dog_Description }}</p>
+        </div>
+        </div>
     </div>
-    <h1>Dog Walking Service - Dog of the Day !!!</h1>
-    <div class="dog-info" role="region" aria-label="Dog of the day details">
-      <img :src="dogImage" />
-      <div class="info-text">
-        <h2>Dog Name: <span>{{ dog_Name }}</span></h2>
-        <p><strong>Breed:</strong> {{ dog_Breed }}</p>
-        <p><strong>Age:</strong> {{ dog_Age }}</p>
-        <p><strong>Description:</strong> {{ dog_Description }}</p>
-      </div>
-    </div>
-  </div>
     <div style="background: #fff; color: #ccc; padding: 20px;">
-      Click here for more dogs! (Actually does nothing)
+        Click here for more dogs! (Actually does nothing)
     </div>
 
   <script>
