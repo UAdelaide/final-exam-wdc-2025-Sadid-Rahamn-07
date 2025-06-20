@@ -133,8 +133,7 @@
 
       // fetch Dog photo
       get_Dogphoto() {
-      try {
-        const response = await fetch('https://dog.ceo/api/breeds/image/random',
+        fetch('https://dog.ceo/api/breeds/image/random',
         {
           method: 'GET',
           headers: {
