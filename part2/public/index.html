@@ -113,7 +113,7 @@
             data.forEach(dog => {
               const row = document.createElement('tr');
               row.innerHTML = `
-                Name: ${dog.name},
+                ${dog.name},
                 Breed: ${dog.breed},
                 Owner: ${dog.owner}`;
               displayer.appendChild(row);
