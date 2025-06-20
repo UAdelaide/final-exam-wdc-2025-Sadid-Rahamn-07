@@ -81,7 +81,8 @@
             body: JSON.stringify({
               username: this.username,
               password: this.password
-            })
+            }),
+            credentials: 'include' // Include credentials for  management
           })
           .then(response => response.json())
           .then(data => {
