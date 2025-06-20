@@ -107,9 +107,18 @@ app.get('/load_user_dogs', (res, req) => {
     if (!req.session || !req.session.user) {
         return res.status(401).json({ error: 'User not authenticated' });
     }
-    
-    const username = req.session.user.username; // fetching username from session
-    console.log(username);
+
+    const username = req.session.user.username;
+
+  const query = `SELECT * FROM Dogs WHERE owner_id = (SELECT id FROM Users WHERE username = ?)`;
+
+  db.query(query, [username], (err, results) => {
+    if (err) {
+      console.error('DB error:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+
+    res.status(200).json(results);
     // SQL query to get all dogs for the user
     /*
     const query = `
