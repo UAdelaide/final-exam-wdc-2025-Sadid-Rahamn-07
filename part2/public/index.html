@@ -98,7 +98,10 @@
         },
         fetchDogs_Data(){
           fetch('/dogs',{
-            method : 'GET'
+            method : 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
