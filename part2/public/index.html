@@ -108,7 +108,7 @@
           })
           .then(response => response.json())
           .then(data => {
-            const displayer = document.getElementById('tab');
+            const displayer = document.querySelector(tbody);
             displayer.innerHTML = '';
             data.forEach(dog => {
               const p = document.createElement('p');
