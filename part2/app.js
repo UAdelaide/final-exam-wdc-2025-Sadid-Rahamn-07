@@ -27,6 +27,12 @@ const db = mysql.createPool({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
@@ -54,12 +60,7 @@ app.post('/login', (req, res) => {
         }
     });
 });
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // use true in production with HTTPS
-}));
+
 app.get('/dogs', (req, res) => {
     //
 })
