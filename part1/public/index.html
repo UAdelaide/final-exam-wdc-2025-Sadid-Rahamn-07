@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Express</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta charset="UTF-8" />
+  <title>Dog Walking Service - Dog of the Day</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eee;
+      color: #777; /* Poor contrast */
+    }
+    .tiny-btn {
+      font-size: 8px;  /* Very small button for kinematic load */
+      padding: 2px 4px;
+      margin: 2px;
+    }
+    .dog-info {
+      width: 500px;
+      margin: 20px auto;
+      border: 3px dashed pink; /* distracting border */
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+      /* No alt text in image tag to break accessibility */
+    }
+    /* Overload the page with redundant text */
+    .info-text {
+      max-width: 200px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    /* forcing lots of scrolling */
+    .extra-text {
+      height: 600px;
+      background: repeating-linear-gradient(45deg, #ccc, #ccc 10px, #eee 10px, #eee 20px);
+      margin-top: 30px;
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Express</h1>
-    <p>Welcome to Express</p>
+  <div id="app" tabindex="-1">
+    <h1>🐕 Dog Walking Service - Dog of the Day 🐕</h1>
+
+    <!-- Overloaded UI with multiple small buttons -->
+    <div>
+      <button class="tiny-btn" @click="fetchDog">New Dog!</button>
+      <button class="tiny-btn" @click="alertDetails">Details</button>
+      <button class="tiny-btn" @click="alertDetails">Details</button>
+      <button class="tiny-btn" @click="alertDetails">Details</button>
+      <button class="tiny-btn" @click="alertDetails">Details</button>
+      <button class="tiny-btn" @click="alertDetails">Details</button>
+    </div>
+
+    <div class="dog-info" role="region" aria-label="Dog of the day details">
+      <img :src="dogImage" />
+      <div class="info-text">
+        <h2>Dog Name: <span>{{ dogName }}</span></h2>
+        <p><strong>Breed:</strong> {{ dogBreed }}</p>
+        <p><strong>Age:</strong> {{ dogAge }}</p>
+        <p><strong>Description:</strong> {{ dogDescription }}</p>
+        <p><em>(Scroll down for more info...)</em></p>
+      </div>
+    </div>
+
+    <div class="extra-text" aria-hidden="true">
+      <!-- Just a big block of patterned background forcing scrolling -->
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          dogImage: '',
+          dogName: 'Fluffy',
+          dogBreed: 'Golden Retriever',
+          dogAge: '4 years',
+          dogDescription: 'A very friendly dog who loves to play and walk in the park.',
+        };
+      },
+      mounted() {
+        this.fetchDog();
+      },
+      methods: {
+        fetchDog() {
+          fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+              this.dogImage = data.message;
+            })
+            .catch(() => {
+              // fallback image
+              this.dogImage = 'https://images.dog.ceo/breeds/retriever-golden/n02099601_2000.jpg';
+            });
+        },
+        alertDetails() {
+          alert(`Dog: ${this.dogName}\nBreed: ${this.dogBreed}\nAge: ${this.dogAge}`);
+        }
+      }
+    }).mount('#app');
+  </script>
 </body>
 </html>
