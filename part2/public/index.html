@@ -105,14 +105,8 @@
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
-                displayer = document.getElementById('#table');
-                document.querySelector('.table table-striped tbody').innerHTML += `
-                  <tr>
-                    <td>${dog.name}</td>
-                    <td>${dog.dog_id}</td>
-                    <td>${dog.owner_id}</td>
-                  </tr>
-                `;
+                displayer = document.getElementById('table');
+                document
               });
             })
           })
