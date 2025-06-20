@@ -78,8 +78,10 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.post('/logout',(res.req) => {
-    req.session.destroy()
+app.post('/logout',(req, res) => {
+    req.session.destroy(err => {
+
+    })
 })
 
 app.get('/dogs', (req, res) => {
