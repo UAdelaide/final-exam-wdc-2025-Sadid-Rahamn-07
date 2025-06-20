@@ -2,6 +2,8 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+
 require('dotenv').config();
 
 const app = express();
@@ -22,7 +24,7 @@ mysql.createPool({
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use()
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
