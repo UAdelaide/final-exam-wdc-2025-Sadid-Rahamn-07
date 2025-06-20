@@ -103,33 +103,31 @@
         },
 
         //fetches the dogs data from the database
-        fetchDogs_Data() {
-          fetch('/dogs',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-          .then(response => response.json())
-          .then(data => {
-            const displayer = document.querySelector('tbody');
-            displayer.innerHTML = '';
-            data.forEach(dog => {
-              const row = document.createElement('tr');
-              dog_photo = this.get_Dogphoto();
-              row.innerHTML = `
-                <td>${dog.dog_id}</td>
-                <td>${dog.name}</td>
-                <td>${dog.size}</td>
-                <td>${dog.owner_id}</td>
-                <td><img :src="${dog_photo}" alt="${dog.name}" class="img-thumbnail" style="width: 100px;"></td>
-              `;
-              displayer.appendChild(row);
-            });
-          })
-          .catch(err => console.error('Fetch error:', err));
-        },
+        async fetchDogs_Data() {
+        try {
+          const response = await fetch('/dogs', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
+          const data = await response.json();
+
+          const displayer = document.querySelector('tbody');
+          displayer.innerHTML = '';
+
+          for (const dog of data) {
+            const dog_photo = await this.get_Dogphoto();
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${dog.dog_id}</td>
+              <td>${dog.name}</td>
+              <td>${dog.size}</td>
+              <td>${dog.owner_id}</td>
+              <td><img src="${dog_photo}" alt="${dog.name}" class="img-thumbnail" style="width: 100px;"></td>
+            `;
+            displayer.appendChild(row);
+          }
+        } catch (err) {
+          console.error('Fetch error:', err);
+        }
+      },
 
       // fetch Dog photo
         async get_Dogphoto()
