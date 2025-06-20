@@ -33,13 +33,6 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Routes
-const walkRoutes = require('./routes/walkRoutes');
-const userRoutes = require('./routes/userRoutes');
-
-app.use('/api/walks', walkRoutes);
-app.use('/api/users', userRoutes);
-
 //setting up a default user session if not logged in
 app.use((req, res, next) => {
     if (!req.session.user) {
@@ -50,6 +43,15 @@ app.use((req, res, next) => {
     }
     next();
 });
+
+// Routes
+const walkRoutes = require('./routes/walkRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/walks', walkRoutes);
+app.use('/api/users', userRoutes);
+
+
 
 app.post('/login', (req, res) => {
 
