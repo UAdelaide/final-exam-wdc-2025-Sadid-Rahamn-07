@@ -141,14 +141,8 @@
           }
         });
 
-        const data = await response.json();
-        this.dog_photo = data.message; // store the URL if you want
-        return this.dog_photo;          // return the photo URL
 
-      } catch (err) {
-        console.error('Fetch error:', err);
       }
-    }
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
