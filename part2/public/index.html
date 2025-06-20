@@ -112,7 +112,10 @@
             displayer.innerHTML = '';
             data.forEach(dog => {
               const row = document.createElement('tr');
-              row.innerHTML = `Name: ${dog.name}, Breed: ${dog.breed}, Owner: ${dog.owner}`;
+              row.innerHTML = `
+                Name: ${dog.name},
+                Breed: ${dog.breed},
+                Owner: ${dog.owner}`;
               displayer.appendChild(row);
             });
           })
