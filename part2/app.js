@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
             res.status(200).json({ message: 'successful', user: results[0], success: true }); // Send the user data back
         } else {
             // User does not exist, send error response
-            res.status(401).json({ error: 'Invalid username or password' });
+            res.status(401).json({ message: 'failed', error: 'Invalid username or password' });
         }
     });
 });
