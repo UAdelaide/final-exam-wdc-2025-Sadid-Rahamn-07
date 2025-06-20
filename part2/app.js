@@ -53,6 +53,7 @@ app.post('/login', (req, res) => {
         }
     });
 });
+app.get()
 
 // Export the app instead of listening here
 module.exports = app;
