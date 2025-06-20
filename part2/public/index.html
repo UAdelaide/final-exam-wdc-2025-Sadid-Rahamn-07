@@ -134,6 +134,7 @@
           return data.message; // This returns the URL string
         },
 
+        // Fetches the session data to get the username
         get_session() {
           // Fetch the session data from the server
           fetch('/session', { method: 'GET', credentials: 'include' })
