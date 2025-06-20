@@ -72,9 +72,10 @@
       logout() {
         fetch('/logout', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
           credentials: 'include' // Include credentials for user session
-        })
+        });
+        .then(re)
         // going back to login page
         window.location.href = '/login'; // Redirect to login page
 
