@@ -73,7 +73,7 @@
             .then(res => res.json())
             .then(data => {
               this.dogImage = data.message;
-              c
+              console.log('Dog image fetched:', data.message);
             })
             .catch(() => {
               // fallback image
