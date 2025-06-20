@@ -54,7 +54,10 @@ app.post('/login', (req, res) => {
         }
         if (results.length > 0) {
             // User exists, send success response
-            req.session.user = { username: user.username, role: user.role };
+            req.session.user = {
+                username: user.username,
+                role: user.role
+            };
             res.status(200).json({ message: 'Successful', user: results[0], success: true }); // Send the user data back
 
         } else {
