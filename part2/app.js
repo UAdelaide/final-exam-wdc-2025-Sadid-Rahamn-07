@@ -73,7 +73,8 @@ app.post('/login', (req, res) => {
                 username: user.username,
                 role: user.role
             };
-
+            // checking user session cookies
+            console.log('Session user:' + req.session.user);
             // Remove password_hash from the user object before sending it back (security reasons)
             delete user.password_hash;
             res.status(200).json(
