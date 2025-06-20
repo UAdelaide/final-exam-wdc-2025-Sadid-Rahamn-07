@@ -59,6 +59,7 @@ app.get('/walkrequests/open', async (req, res) => {
             SELECT WalkRequests.request_id, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Dogs.owner_id
             FROM WalkRequests
             JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
+            JOIN Users ON WalkRequests.dog_id = Dogs.dog_id
             WHERE status = "open"
         `);
         res.json(dogs_data);
