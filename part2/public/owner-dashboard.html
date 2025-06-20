@@ -71,20 +71,20 @@
     createApp({
       methods :
       {
-        logout() {
-          fetch('/logout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include' // Include credentials for user session
-          })
-          .then(response => response.json())
-          .then(data =>{
-            console.log(req.session.user);
-          })
-          // going back to login page
-          window.location.href = '/login'; // Redirect to login page
-
-      }
+        logout()
+          {
+            fetch('/logout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              credentials: 'include' // Include credentials for user session
+            })
+            .then(response => response.json())
+            .then(data =>{
+              console.log(req.session.user);
+            })
+            // going back to login page
+            window.location.href = '/login'; // Redirect to login page
+          },
     },
       setup() {
         const form = ref({
