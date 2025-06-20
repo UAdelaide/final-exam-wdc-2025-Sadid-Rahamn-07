@@ -102,8 +102,10 @@ app.post('/logout', (req, res) => {
     })
 })
 
-app.get('load_user_dogs', (res,req) =>{
-    const userId = req.session.user.; // fetching user id from session
+app.get('load_user_dogs', (res, req) => {
+    const username = req.session.user.username; // fetching username from session
+    
+
 
 });
 
