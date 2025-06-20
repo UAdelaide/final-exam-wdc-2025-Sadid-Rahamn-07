@@ -56,7 +56,11 @@ app.get('/dogs', async (req, res) => {
 app.get('/walkrequests/open', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
-            SELECT *
+            SELECT WalkRequests.request_id,
+            WalkRequests.requested_time,
+            Dogs.dog_id AS dog_id,
+            Dogs.name AS dog_name,
+            Dogs.size AS dog_size,
             FROM WalkRequests
             LEFT JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
             WHERE status = "open"
