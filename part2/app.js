@@ -51,6 +51,7 @@ app.use((req, res, next) => {
 
 
 app.post('/login', (req, res) => {
+    console.log()
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
 
