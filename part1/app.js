@@ -78,11 +78,11 @@ app.get('/walkers/summary', async (req, res) => {
                 COUNT(r.rating) AS total_ratings,
                 AVG(r.rating) AS average_rating,
                 COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
-                FROM Users u
-                LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
-                LEFT JOIN WalkRequests wr ON u.user_id = wr.dog_id -- Not correct: fix below
-                WHERE u.role = 'walker'
-                GROUP BY u.username;
+            FROM Users u
+            LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
+            LEFT JOIN WalkRequests wr ON u.user_id = wr.dog_id -- Not correct: fix below
+            WHERE u.role = 'walker'
+            GROUP BY u.username;
             `);
         res.json(walkers_summary);
     } catch (err) {
