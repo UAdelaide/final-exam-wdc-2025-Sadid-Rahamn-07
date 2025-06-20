@@ -42,6 +42,12 @@
     const { createApp, ref, onMounted } = Vue;
 
     createApp({
+      methods: {
+        logout() {
+          // Implement logout logic here
+          window.location.href = '/';
+        }
+      },
       setup() {
         const walks = ref([]);
         const message = ref('');
