@@ -1,4 +1,3 @@
--- Insert Users
 INSERT INTO Users (username, email, password_hash, role)
 VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -7,7 +6,7 @@ VALUES
 ('davewalker', 'dave@example.com', 'hashed101', 'walker'),
 ('emily123', 'emily@example.com', 'hashed202', 'owner');
 
--- Insert Dogs (using subqueries to get owner_id)
+
 INSERT INTO Dogs (owner_id, name, size)
 VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
@@ -16,7 +15,6 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'emily123'), 'Daisy', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Rocky', 'small');
 
--- Insert WalkRequests (using subqueries to get dog_id)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
