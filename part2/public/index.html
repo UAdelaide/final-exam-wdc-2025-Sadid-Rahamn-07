@@ -86,9 +86,9 @@
               alert('Login : ' + data.message);
               // If login is successful, redirect to the appropriate dashboard
               if (data.role === 'owner') {
-
+                this.$router.push('/new-url');
               } else if (data.role === 'walker') {
-               
+
               }
             } else {
               alert('Login: ' + data.message);
