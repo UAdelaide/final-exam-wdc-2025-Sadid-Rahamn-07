@@ -103,6 +103,7 @@ app.post('/logout', (req, res) => {
 })
 
 app.get('load_user_dogs', (res, req) => {
+    alert('no error');
     const username = req.session.user.username; // fetching username from session
     // SQL query to get all dogs for the user
     const query =
@@ -115,7 +116,7 @@ app.get('load_user_dogs', (res, req) => {
             console.error('Database query error:', err);
             return res.status(500).json({ error: 'Database query error' });
         }
-\
+
         res.status(200).json(results); // Send the list of dogs back
     })
 
