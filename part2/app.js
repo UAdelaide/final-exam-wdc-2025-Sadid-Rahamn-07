@@ -7,7 +7,6 @@ require('dotenv').config();
 const app = express();
 
 // database connection
-
 mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -23,6 +22,7 @@ mysql.createPool({
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
+app.use()
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
