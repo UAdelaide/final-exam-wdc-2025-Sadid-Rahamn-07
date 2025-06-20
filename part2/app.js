@@ -50,8 +50,8 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-}
+    console.log(req.session.user);
+});
 app.post('/login', (req, res) => {
 
     // SQL query to check if the user exists
