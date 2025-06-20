@@ -130,7 +130,12 @@
 
         // fetch Dog photo
         get_Dogphoto(){
-          fetch('')
+          fetch('https://dog.ceo/api/breeds/image/random',{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
         }
 
       },
