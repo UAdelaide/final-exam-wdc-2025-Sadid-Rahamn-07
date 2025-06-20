@@ -103,7 +103,7 @@ app.post('/logout', (req, res) => {
     });
 });
 
-app.get('/load_user_dogs', (res, req) => {
+app.get('/load_user_dogs', (req, res) => {
     if (!req.session || !req.session.user) {
         return res.status(401).json({ error: 'User not authenticated' });
     }
