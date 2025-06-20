@@ -90,7 +90,11 @@
             if (data.success) {
               alert('Login : ' + data.message);
               // If login is successful, redirect to the appropriate dashboard
-              
+              if (data.role === 'owner') {
+                this.showDiv = true;
+              } else if (data.role === 'walker') {
+                window.location.href = 'walker-dashboard.html';
+              }
             } else {
               alert('Login: ' + data.message);
             }
