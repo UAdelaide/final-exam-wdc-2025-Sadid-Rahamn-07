@@ -84,7 +84,6 @@
           })
           .then(response => response.json())
           .then(data =>{
-
             data.forEach(dog => {
               const option = document.createElement('option');
               option.value = dog.name;
