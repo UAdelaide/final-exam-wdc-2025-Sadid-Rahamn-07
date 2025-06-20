@@ -78,20 +78,23 @@
           }
         }
         async function getCurrentUser() {
-            fetch('/api/users/me',{
+          try {
+            const response = await fetch('/api/users/me', {
               method: 'GET',
               headers: { 'Content-Type': 'application/json' },
-              credentials: 'include' // Include credentials for user session
-            })
-            .then(response => response.json())
-            .then(data => {
-              //console.log('Current user data:', data.id);
-              if (data.success) {
-                user = data.id; // Assuming the user object has an id property
-              } else {
-                console.error('User not found');
-              }
-            })
+              credentials: 'include'
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+              user.value = data.id; // ✅ assign to reactive ref
+            } else {
+              error.value = 'User not found';
+            }
+          } catch (err) {
+            error.value = 'Failed to fetch user';
+          }
         }
         async function applyToWalk(requestId) {
           console.log(user);
