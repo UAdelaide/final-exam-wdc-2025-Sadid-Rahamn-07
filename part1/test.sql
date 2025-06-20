@@ -36,6 +36,20 @@ VALUES
   '2025-06-10 08:00:00'
 );
 */
-
-INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
-(SELECT request_id FROM WalkRequests, (SELECT user_id FROM Users), 'pending')
+INSERT INTO WalkApplications (request_id, walker_id, status)
+VALUES
+(
+  (SELECT request_id FROM WalkRequests WHERE location = 'Parklands' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+  'accepted'
+),
+(
+  (SELECT request_id FROM WalkRequests WHERE location = 'Beachside Ave' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+  'pending'
+),
+(
+  (SELECT request_id FROM WalkRequests WHERE location = 'City Square' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'newwalker'),
+  'rejected'
+);
