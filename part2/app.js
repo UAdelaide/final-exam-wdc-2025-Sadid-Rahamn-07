@@ -85,7 +85,7 @@ app.post('/logout', (req, res) => {
             return res.status(500).json({ error: 'Failed to log out' });
         }
         res.status(200).json({ message: 'Logged out successfully' });
-        
+
     })
 })
 
