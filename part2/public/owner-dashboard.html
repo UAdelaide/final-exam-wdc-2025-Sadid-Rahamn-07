@@ -75,7 +75,11 @@
       methods :
       {
         load_dogs(){
-          
+          fetch('load_dogs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include' // Include credentials for user session
+          })
         },
 
         logout()
