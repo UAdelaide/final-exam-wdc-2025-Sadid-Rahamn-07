@@ -66,6 +66,7 @@ app.post('/login', (req, res) => {
             // User exists, send success response
             const user = results[0];
             req.session.user = {
+                id: user.user_id,
                 username: user.username,
                 role: user.role
             };
