@@ -111,7 +111,6 @@ app.get('/load_user_dogs', (req, res) => {
     const username = req.session.user.username;
 
     // SQL query to get all dogs for the user
-    /*
     const query = `
         SELECT *
         FROM Dogs
@@ -128,7 +127,6 @@ app.get('/load_user_dogs', (req, res) => {
             res.status(404).json({ message: 'No dogs found for this user' });
         }
     });
-*/
     res.status(200).json({ message: 'This endpoint is not implemented yet' });
 
 });
