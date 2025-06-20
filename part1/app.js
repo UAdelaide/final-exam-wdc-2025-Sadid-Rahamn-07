@@ -76,7 +76,7 @@ app.get('/walkers/summary', async (req, res) => {
             ALTER TABLE WalkRatings
             ADD COLUMN IF NOT EXISTS completed_walks WalkRatings;
 
-            SELECT Users.username, Users.role, WalkRequests
+            SELECT Users.username, Users.role, 
             FROM WalkRatings
             JOIN Users ON WalkRatings.walker_id = Users.user_id
             JOIN Dogs ON WalkRatings.dog_id = Dogs.dog_id
