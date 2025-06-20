@@ -108,8 +108,8 @@ app.get('/load_user_dogs', (res, req) => {
         return res.status(401).json({ error: 'User not authenticated' });
     }
 
-    const username = req.session.user.username; // fetching username from session
-    console.log(username);
+
+
     // SQL query to get all dogs for the user
     /*
     const query = `
