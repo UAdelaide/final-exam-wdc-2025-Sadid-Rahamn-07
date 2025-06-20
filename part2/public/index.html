@@ -102,8 +102,8 @@
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
-  
-                document.querySelector('.registered_dog_table tbody').innerHTML += `
+
+                rable = document.querySelector('.registered_dog_table tbody').innerHTML += `
                   <tr>
                     <td>${dog.name}</td>
                     <td>${dog.dog_id}</td>
