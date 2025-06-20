@@ -81,6 +81,7 @@
             }),
             credentials: 'include' // Sends the session cookie
           })
+          // Handle the response from the server
           .then(response => response.json())
           .then(data => {
             if (data.success) {
