@@ -33,7 +33,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.post('/login', (req, res) => {
-    //takes username and password from the request body
+    //takes username and password from the request body from vue(fetch('')))
     const {username, password} = req.body;
 });
 
