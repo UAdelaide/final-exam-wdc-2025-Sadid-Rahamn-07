@@ -73,7 +73,7 @@ app.get('/walkrequests/open', async (req, res) => {
 app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
-            ALTER TABLE table_name
+            ALTER TABLE WalkRatings
             ADD COLUMN IF NOT EXISTS column_name datatype;
             SELECT Users.username, Users.role, WalkRequests.
             FROM WalkRatings
