@@ -102,7 +102,9 @@ app.post('/logout', (req, res) => {
     })
 })
 
-app.get('load_user_dogs', (res))
+app.get('load_user_dogs', (res,req) =>{
+    const userId = req.session.user.id; // Assuming user ID is stored in session
+});
 
 app.get('/dogs', (req, res) => {
     // SQL query to get all dogs
