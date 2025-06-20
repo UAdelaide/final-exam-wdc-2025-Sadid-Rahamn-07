@@ -49,9 +49,11 @@ app.use((req, res, next) => {
     next();
 });
 
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+}
 app.post('/login', (req, res) => {
-    console.log(req.session.user);
+
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
 
