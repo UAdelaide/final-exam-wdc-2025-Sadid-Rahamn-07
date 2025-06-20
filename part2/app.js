@@ -54,6 +54,12 @@ app.post('/login', (req, res) => {
         }
     });
 });
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // use true in production with HTTPS
+}));
 app.get('/dogs', (req, res) => {
     //
 })
