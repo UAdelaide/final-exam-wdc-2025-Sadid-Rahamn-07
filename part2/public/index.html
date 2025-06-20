@@ -86,7 +86,7 @@
               alert('Login : ' + data.message);
               // If login is successful, redirect to the appropriate dashboard
               if (data.role === 'owner') {
-                this.$router.replace('/dashboard');
+                window.location.href = '/new-page.html';
               } else if (data.role === 'walker') {
 
               }
