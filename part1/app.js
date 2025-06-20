@@ -85,7 +85,7 @@ app.get('/walkers/summary', async (req, res) => {
         SELECT
     u.user_id,
     u.username,
-    COUNT(DISTINCT CASE WHEN wr.status = 'completed') AS completed_walks
+    COUNT(wr.status = 'completed') AS completed_walks
 FROM Users u
 LEFT JOIN WalkApplications wa ON u.user_id = wa.walker_id
 LEFT JOIN WalkRequests wr ON wa.request_id = wr.request_id
