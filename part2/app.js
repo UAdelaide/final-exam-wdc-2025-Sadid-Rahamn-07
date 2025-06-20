@@ -110,15 +110,16 @@ app.get('/load_user_dogs', (res, req) => {
 
     const username = req.session.user.username;
 
-  const query = `SELECT * FROM Dogs WHERE owner_id = (SELECT id FROM Users WHERE username = ?)`;
+    const query = `SELECT * FROM Dogs WHERE owner_id = (SELECT id FROM Users WHERE username = ?)`;
 
-  db.query(query, [username], (err, results) => {
-    if (err) {
-      console.error('DB error:', err);
-      return res.status(500).json({ error: 'Database error' });
-    }
+    db.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('DB error:', err);
+            return res.status(500).json({ error: 'Database error' });
+        }
 
-    res.status(200).json(results);
+        res.status(200).json(results);
+    });
     // SQL query to get all dogs for the user
     /*
     const query = `
