@@ -85,7 +85,11 @@
             if (data.success) {
               alert('Login : ' + data.message);
               // If login is successful, redirect to the appropriate dashboard
-              console.log(data);
+              if (data.role === 'owner') {
+                window.location.href = 'public/owner-dashboard.html';
+              } else if (data.role === 'walker') {
+
+              }
             } else {
               alert('Login: ' + data.message);
             }
