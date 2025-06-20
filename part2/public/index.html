@@ -143,7 +143,7 @@
         });
 
         const data = await response.json();
-        this.dog_photo = data.message; // store the URL if you want
+        this.dog_photo === data.message; // store the URL if you want
         return this.dog_photo;          // return the photo URL
 
       } catch (err) {
