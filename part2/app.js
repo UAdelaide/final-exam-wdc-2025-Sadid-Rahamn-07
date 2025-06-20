@@ -39,6 +39,8 @@ const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
+
+//setting up a default user session if not logged in
 app.use((req, res, next) => {
     if (!req.session.user) {
         req.session.user = {
@@ -49,9 +51,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    console.log(req.session.user);
-});
 app.post('/login', (req, res) => {
 
     // SQL query to check if the user exists
