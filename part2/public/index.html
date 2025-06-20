@@ -138,8 +138,8 @@
           })
           .then(response => response.json())
           .then(data => {
-            // Assuming the API returns a URL to the dog photo
-            return data.message; // Adjust based on actual API response structure
+           
+            return data.message;
           })
           .catch(err => console.error('Fetch error:', err));
         }
