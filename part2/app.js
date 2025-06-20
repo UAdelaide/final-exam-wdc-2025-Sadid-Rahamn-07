@@ -124,7 +124,7 @@ app.get('/load_user_dogs', (req, res) => {
         }
         if (results.length > 0) {
             console.log('User dogs:', results);
-            res.status(200).json(results); // Send the list of dogs back
+            return res.status(200).json(results); // Send the list of dogs back
         } else {
             res.status(404).json({ message: 'No dogs found for this user' });
         }
