@@ -38,4 +38,4 @@ VALUES
 */
 
 INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
-(SELECT request_id FROM WalkRequests, 101, 'pending'),
+(SELECT request_id FROM WalkRequests, (SELECT user_id FROM Users, 'pending',
