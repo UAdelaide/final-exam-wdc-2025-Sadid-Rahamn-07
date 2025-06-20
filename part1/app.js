@@ -83,10 +83,10 @@ app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
         SELECT
-        u.username AS walker_username,
-        COUNT(r.rating) AS total_ratings,
-        AVG(r.rating) AS average_rating,
-        COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
+            u.username AS walker_username,
+            COUNT(r.rating) AS total_ratings,
+            AVG(r.rating) AS average_rating,
+            COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
         FROM Users u
         LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
         LEFT JOIN WalkRequests wr ON u.user_id = wr.dog_id -- Not correct: fix below
