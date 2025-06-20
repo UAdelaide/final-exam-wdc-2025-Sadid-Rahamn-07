@@ -39,7 +39,4 @@ VALUES
 
 INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
 ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),,
-(3, 103, 'rejected'),
-(1, 104, 'pending'),
-(2, 105, 'pending');
+((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
