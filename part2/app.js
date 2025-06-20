@@ -120,7 +120,7 @@ app.get('/load_user_dogs', (req, res) => {
     db.query(query, [username], (err, results) => {
         if (err) {
             console.error('Database query error:', err);
-            return res.status(500).json({ error: 'Database query error' });
+            res.status(500).json({ error: 'Database query error' });
         }
         if (results.length > 0) {
             console.log('User dogs:', results);
