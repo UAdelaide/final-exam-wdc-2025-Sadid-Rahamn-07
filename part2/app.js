@@ -78,7 +78,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.post('')
+app.post('/logout',ereq)
 
 app.get('/dogs', (req, res) => {
     // SQL query to get all dogs
