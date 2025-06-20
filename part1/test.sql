@@ -25,7 +25,7 @@ VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-12 08:15:00', 15, 'North Terrace', 'Completed');
 */
 
-INSERT INTO WalkRatings (request_id, walker_id, rating, location, status)
+INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments)
 VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
