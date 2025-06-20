@@ -89,7 +89,7 @@
               dogsList.innerHTML = '';  // Clear existing options
               data.forEach(dog => {
               const option = document.createElement('option');
-              option.innerHTML = v-model=
+              option.innerHTML = v-model="form.dog_id";
               option.value = dog.dog_id;
               option.textContent = dog.name;
               dogsList.appendChild(option);
