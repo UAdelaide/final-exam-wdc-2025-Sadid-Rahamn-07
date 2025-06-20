@@ -75,7 +75,8 @@
       methods :
       {
         load_dogs(){
-          displayer = document.getElementById('dogs_list').innerHTML = '';
+          const displayer = document.getElementById('dogs_list');
+          displayer.innerHTML = '';
           fetch('load_user_dogs',{
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
