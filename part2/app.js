@@ -18,7 +18,6 @@ const db = mysql.createPool({
     connectionLimit: 10
 });
 
-
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
@@ -127,9 +126,6 @@ app.get('/load_user_dogs', (req, res) => {
 
         return res.status(404).json({ message: 'No dogs found for this user' });
     });
-
-
-
 });
 
 app.get('/dogs', (req, res) => {
