@@ -77,7 +77,7 @@
         load_dogs(){
           const displayer = document.getElementById('dogs_list');
           displayer.innerHTML = '';
-          fetch('load_user_dogs',{
+          fetch('/load_user_dogs',{
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include' // Include credentials for user session
