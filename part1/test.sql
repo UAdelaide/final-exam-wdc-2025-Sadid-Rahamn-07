@@ -1,3 +1,4 @@
+/*
 INSERT INTO Users (username, email, password_hash, role)
 VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -24,7 +25,7 @@ VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-12 08:15:00', 15, 'North Terrace', 'Completed');
 */
 
-INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+INSERT INTO WalkRatings (dog_id, requested_time, duration_minutes, location, status)
 VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
