@@ -40,10 +40,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-// Serve the Vue.js application
-app.get('/', (req, res) => {
-    console.log(req.session.user);
-});
+
 app.post('/login', (req, res) => {
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
