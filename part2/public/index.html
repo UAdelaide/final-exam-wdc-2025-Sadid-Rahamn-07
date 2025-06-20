@@ -69,7 +69,7 @@
         fetchUserData() {
           fetch('/login')
           // method post
-          methods
+          .method: 'POST',
           .then(response => response.json())
           .then(data => {
 
