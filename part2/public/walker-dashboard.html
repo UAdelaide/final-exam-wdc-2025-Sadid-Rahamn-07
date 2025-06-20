@@ -83,7 +83,14 @@
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include' // Include credentials for user session
             })
-            
+            .then(response => response.json())
+            .then(data => {
+              if (data.user) {
+                user = data.user.id; // Assuming the user object has an id property
+              } else {
+                console.error('User not found');
+              }
+            })
         }
         async function applyToWalk(requestId) {
           try {
