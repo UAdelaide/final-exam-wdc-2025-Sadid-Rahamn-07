@@ -108,7 +108,13 @@
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
-                document.querySelector
+                document.querySelector('.registered_dog_table tbody').innerHTML += `
+                  <tr>
+                    <td>${dog.name}</td>
+                    <td>${dog.breed}</td>
+                    <td>${dog.owner}</td>
+                  </tr>
+                `;
               });
             })
           })
