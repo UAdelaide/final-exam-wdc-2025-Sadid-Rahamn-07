@@ -42,7 +42,7 @@ let db;
 app.get('/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
-            SELECT *
+            SELECT Dogs.name, 
             FROM Dogs`
         );
         res.json(dogs_data);
