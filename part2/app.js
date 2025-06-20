@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
         }
         if (results.length > 0) {
             // User exists, send success response
-            res.status(200).json({ message: 'Login successful', user: results[0] });
+            res.status(200).json({ message: 'Login successful', user: results[0] }); // Send the user data back
         } else {
             // User does not exist, send error response
             res.status(401).json({ error: 'Invalid username or password' });
