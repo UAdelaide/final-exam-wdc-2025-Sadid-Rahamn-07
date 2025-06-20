@@ -81,6 +81,7 @@ app.get('/walkers/summary', async (req, res) => {
             JOIN Users ON WalkRatings.walker_id = Users.user_id
             JOIN Dogs ON WalkRatings.dog_id = Dogs.dog_id
             JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
+            WHERE WalkRatings.status = 'completed'
             `);
         res.json(walkers_summary);
     } catch (err) {
