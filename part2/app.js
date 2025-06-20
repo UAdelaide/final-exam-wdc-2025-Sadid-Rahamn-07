@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
+
 require('dotenv').config();
 
 const app = express();
+
+//database connection
 
 // Middleware
 app.use(express.json());
