@@ -31,7 +31,24 @@
       </form>
     </div>
     <!-- Registered Dogs List -->
-    <div class="registered_dogs_lists">
+    <div class="registered_dog_table">
+      <h2 class="mt-5">Registered Dogs</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="dog in dogs" :key="dog.id">
+            <td>{{ dog.name }}</td>
+            <td>{{ dog.breed }}</td>
+            <td>{{ dog.owner }}</td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
   </div>
