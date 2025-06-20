@@ -90,7 +90,15 @@
             if (data.success) {
               alert('Login : ' + data.message);
               // If login is successful, redirect to the appropriate dashboard
-              for (data )
+              for (items in data){
+                if (items === 'owner') {
+                  window.location.href = 'owner-dashboard.html';
+                } else if (items === 'walker') {
+                  window.location.href = 'walker-dashboard.html';
+                } else {
+                  this.showDiv = true; // Show the div if login is successful
+                }
+              }
             } else {
               alert('Login: ' + data.message);
             }
