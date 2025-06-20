@@ -73,7 +73,7 @@ app.get('/walkrequests/open', async (req, res) => {
 app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
-            SELECT Users.username, Users.role, 
+            SELECT Users.username, Users.role, WalkRequests
             FROM WalkRatings
             JOIN Users ON WalkRatings.walker_id = Users.user_id
             JOIN Dogs ON WalkRatings.dog_id = Dogs.dog_id
