@@ -97,7 +97,6 @@ app.post('/logout', (req, res) => {
             console.error('Session destruction error:', err);
             return res.status(500).json({ error: 'Failed to log out' });
         }
-        alert('no error');
         res.status(200).json({ message: 'Logged out successfully' });
 
     })
@@ -117,6 +116,7 @@ app.get('load_user_dogs', (res, req) => {
             console.error('Database query error:', err);
             return res.status(500).json({ error: 'Database query error' });
         }
+        alert('no error');
         res.status(200).json(results); // Send the list of dogs back
     })
 
