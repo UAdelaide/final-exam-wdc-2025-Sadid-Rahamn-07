@@ -20,7 +20,7 @@
 
     <!-- Login Form -->
     <div class="user_login_form">
-      <form @submit.prevent="fetchUserData" method="post">
+      <form method="post">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input v-model="username" type="text" class="form-control" id="username" required>
@@ -29,7 +29,7 @@
           <label for="password" class="form-label">Password</label>
           <input v-model="password" type="password" class="form-control" id="password" required>
         </div>
-        <button v- type="submit" class="btn btn-primary">Login</button>
+        <button v-on:click="fetchUserData" type="submit" class="btn btn-primary">Login</button>
       </form>
     </div>
 
