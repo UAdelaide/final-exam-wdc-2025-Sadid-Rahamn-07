@@ -104,37 +104,37 @@
 
         //fetches the dogs data from the database
         async fetchDogs_Data() {
-        try {
-          const response = await fetch('/dogs', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
-          const data = await response.json();
+          try {
+            const response = await fetch('/dogs', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
+            const data = await response.json();
 
-          const displayer = document.querySelector('tbody');
-          displayer.innerHTML = '';
+            const displayer = document.querySelector('tbody');
+            displayer.innerHTML = '';
 
-          for (const dog of data) {
-            const dog_photo = await this.get_Dogphoto();
+            for (const dog of data) {
+              const dog_photo = await this.get_Dogphoto();
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-              <td>${dog.dog_id}</td>
-              <td>${dog.name}</td>
-              <td>${dog.size}</td>
-              <td>${dog.owner_id}</td>
-              <td><img src="${dog_photo}" alt="${dog.name}" class="img-thumbnail" style="width: 100px;"></td>
-            `;
-            displayer.appendChild(row);
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${dog.dog_id}</td>
+                <td>${dog.name}</td>
+                <td>${dog.size}</td>
+                <td>${dog.owner_id}</td>
+                <td><img src="${dog_photo}" alt="${dog.name}" class="img-thumbnail" style="width: 100px;"></td>
+              `;
+              displayer.appendChild(row);
+            }
+          } catch (err) {
+            console.error('Fetch error:', err);
           }
-        } catch (err) {
-          console.error('Fetch error:', err);
-        }
-      },
+        },
       // fetch Dog photo
-        async get_Dogphoto()
-        {
-          const response = await fetch('https://dog.ceo/api/breeds/image/random');
-          const data = await response.json();
-          return data.message; // This returns the URL string
-        }
+      async get_Dogphoto()
+      {
+        const response = await fetch('https://dog.ceo/api/breeds/image/random');
+        const data = await response.json();
+        return data.message; // This returns the URL string
+      }
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
