@@ -75,6 +75,9 @@
       methods :
       {
         load_dogs(){
+           if (!req.session.user) {
+            return res.status(401).json({ error: 'User not authenticated' });
+          }
           const displayer = document.getElementById('dogs_list');
           displayer.innerHTML = '';
           fetch('/load_user_dogs',{
