@@ -104,7 +104,8 @@
 
         //fetches the dogs data from the database
         fetchDogs_Data() {
-          fetch('/dogs', {
+          fetch('/dogs',
+          {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
