@@ -74,7 +74,7 @@ app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
             ALTER TABLE WalkRatings
-            ADD COLUMN IF NOT EXISTS column_name datatype;
+            ADD COLUMN IF NOT EXISTS completed_walks WalkRatings;
             SELECT Users.username, Users.role, WalkRequests.
             FROM WalkRatings
             JOIN Users ON WalkRatings.walker_id = Users.user_id
