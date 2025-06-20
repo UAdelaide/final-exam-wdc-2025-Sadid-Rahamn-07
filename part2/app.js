@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
     });
 });
 app.get('/dogs', (req, res) => {
-    //
+    // 
 })
 
 // Export the app instead of listening here
