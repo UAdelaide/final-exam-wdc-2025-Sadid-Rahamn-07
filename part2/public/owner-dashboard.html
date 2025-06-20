@@ -69,6 +69,10 @@
     const { createApp, ref, onMounted } = Vue;
 
     createApp({
+      logout() {
+        // Implement logout logic here
+        window.location.href = '/login'; // Redirect to login page
+      },
       setup() {
         const form = ref({
           dog_id: '',
