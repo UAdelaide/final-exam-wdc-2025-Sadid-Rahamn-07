@@ -67,8 +67,11 @@
       },
       methods: {
         fetchUserData() {
-          fetch(){
-            
+          fetch('/login'){
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            }
           }
         }
       },
