@@ -109,8 +109,6 @@
               'Content-Type': 'application/json'
             }
           })
-
-
           .then(response => response.json())
           .then(data => {
             const displayer = document.querySelector('tbody');
@@ -128,7 +126,10 @@
             });
           })
           .catch(err => console.error('Fetch error:', err));
-        }
+        },
+
+        // fetch
+
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
