@@ -74,7 +74,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/dogs', (req, res) => {
-    //
+    db.query(sq)
 })
 
 // Export the app instead of listening here
