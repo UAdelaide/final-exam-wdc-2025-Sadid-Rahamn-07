@@ -100,10 +100,12 @@ app.post('/logout', (req, res) => {
         res.status(200).json({ message: 'Logged out successfully' });
 
     })
-})
+});
 
 app.get('load_user_dogs', (res, req) => {
-    alert('no error');
+    if (!req.session.user || !req.session.user.username) {
+        return res.status(401).json({ error: 'User not authenticated' });
+    }
     const username = req.session.user.username; // fetching username from session
     // SQL query to get all dogs for the user
     const query = `
