@@ -30,7 +30,7 @@ mysql.createPool({
     connectionLimit: 10 // Adjust as needed
 });
 
-mysql
+
 
 
 
