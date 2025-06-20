@@ -105,7 +105,6 @@
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
-                displayer = document.getElementById('tab');
                 p = document.createElement('p');
                 p.innerHTML = `Name: ${dog.name}, Breed: ${dog.breed}, Owner: ${dog.owner}`;
                 displayer.appendChild(p);
