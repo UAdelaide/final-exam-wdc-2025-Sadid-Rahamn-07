@@ -118,7 +118,7 @@ app.get('load_user_dogs', (res, req) => {
         }
         console.log('User dogs:', results);
         res.status(200).json(results); // Send the list of dogs back
-    })
+    });
 
 
 });
