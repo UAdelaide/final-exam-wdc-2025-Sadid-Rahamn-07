@@ -88,7 +88,7 @@
             const data = await response.json();
 
             if (data.success) {
-              user.value = data.id; // ✅ assign to reactive ref
+              user.value = data.id;
             } else {
               error.value = 'User not found';
             }
