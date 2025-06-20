@@ -108,7 +108,7 @@ app.get('/load_user_dogs', (req, res) => {
 
     // SQL query to get all dogs for the user
     const query = `
-        SELECT Dogs.name
+        SELECT Dogs.name, Dogs.dog_id
         FROM Dogs
         INNER JOIN Users ON Dogs.owner_id = Users.user_id
         WHERE Users.username = ?
