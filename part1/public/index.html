@@ -47,16 +47,6 @@
   <div id="app" tabindex="-1">
     <h1>🐕 Dog Walking Service - Dog of the Day 🐕</h1>
 
-    <!-- Overloaded UI with multiple small buttons -->
-    <div>
-      <button type="button" class="tiny-btn" @click="fetchDog">New Dog!</button>
-      <button type="button" class="tiny-btn" @click="alertDetails">Details</button>
-      <button type="button" class="tiny-btn" @click="alertDetails">Details</button>
-      <button type="button" class="tiny-btn" @click="alertDetails">Details</button>
-      <button type="button" class="tiny-btn" @click="alertDetails">Details</button>
-      <button type="button" class="tiny-btn" @click="alertDetails">Details</button>
-    </div>
-
     <div class="dog-info" role="region" aria-label="Dog of the day details">
       <img src="#" alt="dog" :src="dogImage" />
       <div class="info-text">
