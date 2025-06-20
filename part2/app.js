@@ -108,7 +108,15 @@ app.get('load_user_dogs', (res, req) => {
     // SQL query to get all dogs for the user
     const query = 'SELECT * FROM Dogs WHERE owner_username = ?';
     db.query(query, [username], (err, results) => {
-        
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        if (results.length > 0) {
+            res.status(200).json(results); // Send the list of dogs back
+        } else {
+            res.status(404).json({ message: 'No dogs found for this user' });
+        }
     });
 
 
