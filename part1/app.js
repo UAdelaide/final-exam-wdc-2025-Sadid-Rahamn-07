@@ -33,32 +33,18 @@ let db;
             password: '',
             database: 'DogWalkService'
         });
+    };
 
-        // Insert data if table is empty
-        const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
-        if (rows[0].count === 0) {
-            await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
-      `);
+    // Route to return books as JSON
+    app.get('/dogs', async (req, res) => {
+        try {
+            const [dogs_data] = await db.execute('SELECT * FROM Dogs');
+            res.json(dogs_data);
+        } catch (err) {
+            res.status(500).json({ error: 'Failed to fetch data' });
         }
-    } catch (err) {
-        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
-    }
-})();
+    });
 
-// Route to return books as JSON
-app.get('/dogs', async (req, res) => {
-    try {
-        const [dogs] = await db.execute('SELECT * FROM Dogs');
-        res.json(books);
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch data' });
-    }
-});
+    app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-module.exports = app;
+    module.exports = app;
