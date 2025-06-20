@@ -103,7 +103,7 @@
         },
 
         //fetches the dogs data from the database
-        fetchDogs_Data() {
+        async fetchDogs_Data() {
           fetch('/dogs', {
             method: 'GET',
             headers: {
