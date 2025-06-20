@@ -108,8 +108,13 @@
             }
             .then(response => response.json())
             .then(data =>{
-             this.dogs = data;  // fill dogs array with data from backend
-              console.log('Dogs data fetched:', this.dogs);
+              data.forEach(dog => {
+                this.dogs.push({
+                  id: dog.id,
+                  name: dog.name,
+                  breed: dog.breed,
+                  owner: dog.owner
+                });
             })
           })
         }
