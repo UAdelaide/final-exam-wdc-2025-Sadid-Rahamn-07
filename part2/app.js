@@ -36,19 +36,11 @@ app.post('/login', (req, res) => {
 
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
-    // Note: In a real application, you should hash passwords and use a secure method for
-    // authentication. This is just a simple example for demonstration purposes.
-    // The query below is vulnerable to SQL injection, so use parameterized queries in production.
-    // This query is a placeholder and should be replaced with a secure authentication method.
-    // The query below is vulnerable to SQL injection, so use parameterized queries in production.
-    // This query is a placeholder and should be replaced with a secure authentication method.
-    // The query below is vulnerable to SQL injection, so use parameterized queries in production.
-    // This query is a placeholder and should be replaced with a secure authentication method.
-    // The query below is vulnerable to SQL injection, so use parameterized queries in production.
-    // This query is a placeholder and should be replaced with a secure authentication method.
     //  takes username and password from the request body from vue(fetch('/login')))
     const { username, password } = req.body;
-    db.query(sql)
+    db.query(sql,){
+
+    }
 });
 
 // Export the app instead of listening here
