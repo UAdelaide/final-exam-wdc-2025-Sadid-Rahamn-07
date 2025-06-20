@@ -27,4 +27,4 @@ VALUES
 
 INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
 VALUES
-((SELECT request_id FROM WalkRequests WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open');
+(SELECT request_id FROM WalkRequests, '2025-06-10 08:00:00', 30, 'Parklands', 'open');
