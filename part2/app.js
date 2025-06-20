@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
         }
         if (results.length > 0) {
             // User exists, send success response
-            user = results[0];
+            const user = results[0];
             req.session.user = {
                 username: user.username,
                 role: user.role
