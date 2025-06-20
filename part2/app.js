@@ -81,6 +81,7 @@ app.get('/dogs', (req, res) => {
             console.error('Database query error:', err);
             return res.status(500).json({ error: 'Database query error' });
         }
+        console.log(req.session.user);
         res.status(200).json(results); // Send the list of dogs back
     });
 })
