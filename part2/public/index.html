@@ -47,12 +47,6 @@
         </thead>
         <tbody>
 
-          <tr>
-            <td>{{ dog.name }}</td>
-            <td>{{ dog.breed }}</td>
-            <td>{{ dog.owner }}</td>
-          </tr>
-
         </tbody>
       </table>
     </div>
@@ -107,7 +101,7 @@
             }
             .then(response => response.json())
             .then(data =>{
-              data.forEach(dog => {
+              data.forEach(dog => { 
                 document.querySelector('.registered_dog_table tbody').innerHTML += `
                   <tr>
                     <td>${dog.name}</td>
