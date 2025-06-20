@@ -134,7 +134,18 @@
           return data.message; // This returns the URL string
         }
 
-        
+        get_session() {
+          // Fetch the session data from the server
+          fetch('/session', { method: 'GET', credentials: 'include' })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                this.username = data.user.username; // Set the username from session
+              } else {
+                console.error('Session fetch error:', data.message);
+              }
+            });
+        }
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
