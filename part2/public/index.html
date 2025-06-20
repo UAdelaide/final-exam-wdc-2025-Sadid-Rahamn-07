@@ -141,7 +141,7 @@
           .then(response => response.json())
           .then(data => {
             this.dog_photo = data.message; // Store the dog photo URLw
-            return ; // Return the photo URL
+            return dog_photo; // Return the photo URL
           })
           .catch(err => console.error('Fetch error:', err));
         }
