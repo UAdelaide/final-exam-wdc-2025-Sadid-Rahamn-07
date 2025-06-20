@@ -38,7 +38,18 @@ let db;
     }
 })();
 
-// Route to return books as JSON
+// Route to return dogs as JSON
+app.get('/dogs', async (req, res) => {
+    try {
+        const [dogs_data] = await db.execute('SELECT * FROM Dogs');
+        res.json(dogs_data);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch data' });
+    }
+});
+
+
+// Route to return dogs as JSON
 app.get('/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute('SELECT * FROM Dogs');
