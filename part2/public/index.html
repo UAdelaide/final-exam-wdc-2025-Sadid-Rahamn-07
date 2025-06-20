@@ -131,8 +131,8 @@
         },
 
         // fetch Dog photo
-        get_Dogphoto(){
-          await fetch('https://dog.ceo/api/breeds/image/random',{
+        async get_Dogphoto(){
+          const response = await fetch('https://dog.ceo/api/breeds/image/random',{
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
