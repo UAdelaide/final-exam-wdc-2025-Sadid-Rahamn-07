@@ -80,7 +80,8 @@
               password: this.password
             })
           })
-          .then(response)
+          .then(response => response.json())
+          .then(data => {
         }
       },
     }).mount('#app');
