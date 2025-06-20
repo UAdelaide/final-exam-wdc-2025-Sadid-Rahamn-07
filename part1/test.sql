@@ -27,4 +27,4 @@ VALUES
 
 INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
 VALUES
-(SELECT request_id FROM WalkRequests, walker_id FROM Users, owner_id FROM Users, 'hello', 'open');
+(SELECT request_id FROM WalkRequests, walker_id FROM Users, owner_id FROM Users, 'hello', '2025-06-10 08:00:00');
