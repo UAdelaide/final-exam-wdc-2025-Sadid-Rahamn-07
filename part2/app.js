@@ -81,7 +81,7 @@ app.get('/dogs', (req, res) => {
             console.error('Database query error:', err);
             return res.status(500).json({ error: 'Database query error' });
         }
-        res.status(200).json(results); // Send the list of dogs back
+        res.status(200).(results); // Send the list of dogs back
     });
 })
 
