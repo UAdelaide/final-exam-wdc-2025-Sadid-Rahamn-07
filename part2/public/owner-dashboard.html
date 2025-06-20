@@ -111,6 +111,9 @@
             window.location.href = '/'; // Redirect to login page
           },
     },
+    mounted() {
+        this.load_dogs();
+      },
       setup() {
         const form = ref({
           dog_id: '',
