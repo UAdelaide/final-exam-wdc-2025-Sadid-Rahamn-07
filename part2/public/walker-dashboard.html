@@ -78,7 +78,7 @@
           }
         }
         async function getCurrentUser() {
-            fetch('/api/users/me',{
+            fetch('/me',{
               method: 'GET',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include' // Include credentials for user session
