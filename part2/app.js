@@ -92,15 +92,15 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/logout', (req, res) => {
-    req.session.destroy(err => {
+    req.session.destroy((err) => {
         if (err) {
             console.error('Session destruction error:', err);
             return res.status(500).json({ error: 'Failed to log out' });
         }
         res.status(200).json({ message: 'Logged out successfully' });
 
-    })
-})
+    });
+});
 
 app.get('load_user_dogs', (res, req) => {
     const username = req.session.user.username; // fetching username from session
@@ -108,7 +108,7 @@ app.get('load_user_dogs', (res, req) => {
     const query = 'SELECT * FROM Dogs WHERE owner_username = ?';
     db.query(query, [username], (err, results) => {
 
-    })
+    });
 
 
 });
