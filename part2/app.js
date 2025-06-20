@@ -59,7 +59,13 @@ app.post('/login', (req, res) => {
                 username: user.username,
                 role: user.role
             };
-            res.status(200).json({ message: 'Successful', user: results[0], success: true }); // Send the user data back
+            delete user.password_hash;
+            res.status(200).json(
+                {
+                    message: 'Successful',
+                    user: results[0],
+                    success: true
+                }); // Send the user data back
 
         } else {
             // User does not exist, send error response
