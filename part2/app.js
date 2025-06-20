@@ -40,7 +40,7 @@ app.post('/login', (req, res) => {
     const { username, password } = req.body;
     db.query(sql, [username, password], (err, results) => {
 
-    }
+    });
 });
 
 // Export the app instead of listening here
