@@ -78,6 +78,8 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('')
+
 app.get('/dogs', (req, res) => {
     // SQL query to get all dogs
     const dogs_sql = 'SELECT * FROM Dogs';
