@@ -83,7 +83,7 @@
           .then(response => response.json())
           .then(data => {
             if (data.success) {
-              this.showDiv = true; // Show the div if login is successful
+
             } else {
               alert('Login failed: ' + data.message);
             }
