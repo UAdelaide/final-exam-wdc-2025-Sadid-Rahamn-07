@@ -42,8 +42,9 @@ let db;
 app.get('/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
-            SELECT Dogs.name, 
-            FROM Dogs`
+            SELECT Dogs.name, Dogs.size, Users.username AS owner, Dogs.breed, Dogs.age, Dogs.description
+            FROM Dogs
+            `
         );
         res.json(dogs_data);
     } catch (err) {
