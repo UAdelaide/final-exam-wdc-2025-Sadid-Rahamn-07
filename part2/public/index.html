@@ -69,12 +69,15 @@
         fetchUserData() {
           fetch('/login',{
             method: 'POST',
+            
             headers: {
               'Content-Type': 'application/json'
             },
+            // Send the username and password to the server
             body: JSON.stringify({
               username: this.username,
               password: this.password
+            })
           })
         }
       },
