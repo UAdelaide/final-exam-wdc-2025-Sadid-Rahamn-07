@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express();
 
 // database connection
-const bd = mysql.createPool({
+const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -33,9 +33,11 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.post('/login', (req, res) => {
+
+    
     //  takes username and password from the request body from vue(fetch('/login')))
     const { username, password } = req.body;
-    mysql.createPool(connectionUri)
+    db.query(sql)
 });
 
 // Export the app instead of listening here
