@@ -60,22 +60,6 @@
             // going back to login page
             window.location.href = '/'; // Redirect to login page
           },
-          async function getCurrentUser() {
-            fetch('/api/users/me',{
-              method: 'GET',
-              headers: { 'Content-Type': 'application/json' },
-              credentials: 'include' // Include credentials for user session
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.user) {
-                user = data.id; // Assuming the user object has an id property
-                console.log('Current user:', data.user);
-              } else {
-                console.error('User not found');
-              }
-            })
-        }
       },
 
       setup() {
@@ -93,7 +77,22 @@
             error.value = err.message;
           }
         }
-
+        async function getCurrentUser() {
+            fetch('/api/users/me',{
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' },
+              credentials: 'include' // Include credentials for user session
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.user) {
+                user = data.id; // Assuming the user object has an id property
+                console.log('Current user:', data.user);
+              } else {
+                console.error('User not found');
+              }
+            })
+        }
         async function applyToWalk(requestId) {
           console.log(user);
           try {
