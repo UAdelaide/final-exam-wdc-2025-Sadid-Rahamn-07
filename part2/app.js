@@ -33,7 +33,7 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-//setting up a default user session if not logged in
+// setting up a default user session if not logged in
 app.use((req, res, next) => {
     if (!req.session.user) {
         req.session.user = {
@@ -82,7 +82,8 @@ app.post('/login', (req, res) => {
                     message: 'Successful',
                     user: results[0],
                     success: true
-                }); // Send the user data back
+                }
+); // Send the user data back
 
         } else {
             // User does not exist, send error response
@@ -123,7 +124,7 @@ app.get('/dogs', (req, res) => {
         }
         res.status(200).json(results); // Send the list of dogs back
     });
-})
+});
 
 app.get('/session', (req, res) => {
     if (req.session.user) {
