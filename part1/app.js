@@ -59,7 +59,7 @@ app.get('/dogs', async (req, res) => {
 // Route to return walkrequests that are open as JSON
 app.get('/walkrequests/open', async (req, res) => {
     try {
-        const [dogs_data] = await db.execute(`
+        const [walkrequests_open] = await db.execute(`
             SELECT
                 WalkRequests.request_id,
                 Dogs.name AS dog_name,
@@ -72,7 +72,7 @@ app.get('/walkrequests/open', async (req, res) => {
             JOIN Users ON Dogs.owner_id = Users.user_id
             WHERE status = "open"
         `);
-        res.json(dogs_data);
+        res.json(walkrequests_open);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch data' });
     }
