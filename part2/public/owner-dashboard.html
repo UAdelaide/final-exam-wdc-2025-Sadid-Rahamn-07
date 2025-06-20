@@ -83,7 +83,12 @@
           .then(response => response.json())
           .then(data =>{
             displayer = document.getElementById('dogs_list').innerHTML = '';
-            
+            data.forEach(dog => {
+              const option = document.createElement('option');
+              option.value = dog.dog_id;
+              option.textContent = `${dog.name} (${dog.size})`;
+              document.getElementById('dogs_list').appendChild(option);
+            });
           })
         },
 
