@@ -116,6 +116,7 @@
             displayer.innerHTML = '';
             data.forEach(dog => {
               const row = document.createElement('tr');
+              dog_photo = this.get_Dogphoto();
               row.innerHTML = `
                 <td>${dog.dog_id}</td>
                 <td>${dog.name}</td>
