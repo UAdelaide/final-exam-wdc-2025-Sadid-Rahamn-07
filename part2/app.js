@@ -36,7 +36,7 @@ app.use('/api/users', userRoutes);
 app.post('/login', (req, res) => {
 
     // SQL query to check if the user exists
-    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    const sql = 'SELECT * FROM Users WHERE username = ? AND password = ?';
 
     //  takes username and password from the request body from vue(fetch('/login')))
     const { username, password } = req.body;
