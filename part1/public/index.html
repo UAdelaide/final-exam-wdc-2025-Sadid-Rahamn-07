@@ -41,7 +41,12 @@
     <h1>Dog Walking Service - Dog of the Day !!!</h1>
     <div class="navbar">
         <ul>
-            </ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><button @click="alertDetails">Dog Details</button></li>
+        </ul>
     </div>
     <div class="dog-info" role="region" aria-label="Dog of the day details">
       <img alt="dog" :src="dogImage" />
