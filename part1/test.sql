@@ -49,7 +49,7 @@ VALUES
   'pending'
 ),
 (
-  (SELECT request_id FROM WalkRequests WHERE location = 'City Square' LIMIT 1),
-  (SELECT user_id FROM Users WHERE username = 'newwalker'),
+  (SELECT request_id FROM WalkRequests WHERE location = 'Botanic Gardens' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker'),
   'rejected'
 );
