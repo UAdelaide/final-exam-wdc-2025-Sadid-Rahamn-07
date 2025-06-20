@@ -86,7 +86,7 @@
             data.forEach(dog => {
               const option = document.createElement('option');
               option.value = dog.dog_id;
-              option.textContent = `${dog.name} (${dog.size})`;
+              option.textContent = `${dog.name}`;
               document.getElementById('dogs_list').appendChild(option);
             });
             this.selectDogs = data[0].dog_id; // Set default selected dog
