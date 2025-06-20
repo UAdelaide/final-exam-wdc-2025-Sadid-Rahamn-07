@@ -58,7 +58,7 @@ app.post('/login', (req, res) => {
                 username: user.username,
                 role: user.role
             };
-            // checking userrsession
+            // checking user session cookies
             console.log(req.session.user);
             delete user.password_hash;
             res.status(200).json(
