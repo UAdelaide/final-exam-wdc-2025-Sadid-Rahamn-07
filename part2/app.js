@@ -79,7 +79,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/logout',(res.req) => {
-    req.sess
+    req.session.destroy()
 })
 
 app.get('/dogs', (req, res) => {
