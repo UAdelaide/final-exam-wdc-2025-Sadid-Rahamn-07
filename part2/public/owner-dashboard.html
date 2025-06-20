@@ -22,7 +22,7 @@
           <div class="mb-3">
             <label class="form-label">Select Your Dogs</label>
             <!--<input v-model="form.dog_id" type="number" class="form-control" required>-->
-            <select class="form-select"  id="dogs_list">
+            <select v-model="dog_id" class="form-select"  id="dogs_list">
               <option value="" disabled selected>Select a dog</option>
             </select>
           </div>
@@ -89,7 +89,6 @@
               dogsList.innerHTML = '';  // Clear existing options
               data.forEach(dog => {
               const option = document.createElement('option');
-              option.innerHTML = v-model="form.dog_id";
               option.value = dog.dog_id;
               option.textContent = dog.name;
               dogsList.appendChild(option);
