@@ -42,7 +42,11 @@ let db;
 app.get('/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
-            SELECT Dogs.name, Dogs.size, Users.username, Users.role
+            SELECT
+                Dogs.name,
+                Dogs.size,
+                Users.username,
+                Users.role
             FROM Dogs
             JOIN Users ON Dogs.owner_id = Users.user_id
         `);
