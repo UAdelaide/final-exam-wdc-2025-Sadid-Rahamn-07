@@ -96,25 +96,25 @@
             }
           })
         },
-        fetchDogs_Data(){
-          fetch('/dogs',{
-            method : 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          )}
-            .then(response => response.json())
-            .then(data =>{
-               displayer = document.getElementById('tab');
-                displayer.innerHTML = '';
-              data.forEach(dog => {
-                p = document.createElement('p');
-                p.innerHTML = `Name: ${dog.name}, Breed: ${dog.breed}, Owner: ${dog.owner}`;
-                displayer.appendChild(p);
-              });
-            })
-          })
-        }
+        fetchDogs_Data() {
+  fetch('/dogs', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }) // <-- close fetch options here
+  .then(response => response.json())
+  .then(data => {
+    const displayer = document.getElementById('tab');
+    displayer.innerHTML = '';
+    data.forEach(dog => {
+      const p = document.createElement('p');
+      p.innerHTML = `Name: ${dog.name}, Breed: ${dog.breed}, Owner: ${dog.owner}`;
+      displayer.appendChild(p);
+    });
+  })
+  .catch(err => console.error('Fetch error:', err));
+}
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
