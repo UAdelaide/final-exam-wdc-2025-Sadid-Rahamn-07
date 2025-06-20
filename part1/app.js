@@ -74,11 +74,11 @@ app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
             SELECT *
-            FROM WalkRatings`
+            FROM WalkRatings
             JOIN Users ON WalkRatings.walker_id = Users.user_id
             JOIN Dogs ON WalkRatings.dog_id = Dogs.dog_id
             JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
-        );
+            `);
         res.json(walkers_summary);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch data' });
