@@ -78,7 +78,12 @@
           }
         }
         async function getCurrentUser() {
-            fetch('/api/users')
+            fetch('/api/users/me',{
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' },
+              credentials: 'include' // Include credentials for user session
+            })
+            
         }
         async function applyToWalk(requestId) {
           try {
