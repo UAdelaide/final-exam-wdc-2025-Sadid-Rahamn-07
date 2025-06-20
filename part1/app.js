@@ -49,7 +49,7 @@ app.get('/dogs', async (req, res) => {
 });
 
 
-// Route to return dogs as JSON
+// Route to return w as JSON
 app.get('/walkrequests/open', async (req, res) => {
     try {
         const [dogs_data] = await db.execute('SELECT * FROM Dogs');
@@ -60,7 +60,7 @@ app.get('/walkrequests/open', async (req, res) => {
 });
 
 // Route to return dogs as JSON
-app.get('/walkrequests/open', async (req, res) => {
+app.get('/walkers/summary', async (req, res) => {
     try {
         const [dogs_data] = await db.execute('SELECT * FROM Dogs');
         res.json(dogs_data);
