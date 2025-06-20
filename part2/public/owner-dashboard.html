@@ -85,7 +85,7 @@
             displayer = document.getElementById('dogs_list').innerHTML = '';
             data.forEach(dog => {
               const option = document.createElement('option');
-              option.value = dog.dog_id;
+              option.value = dog.name;
               option.textContent = `${dog.name}`;
               document.getElementById('dogs_list').appendChild(option);
             });
