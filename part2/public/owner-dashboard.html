@@ -74,6 +74,7 @@
     createApp({
       methods :
       {
+        // Function to load user's dogs from the server
         load_dogs(){
           const displayer = document.getElementById('dogs_list');
           displayer.innerHTML = '';
@@ -111,7 +112,7 @@
             // going back to login page
             window.location.href = '/'; // Redirect to login page
           },
-    },
+      },
       mounted() {
         this.load_dogs();
       },
