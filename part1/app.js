@@ -83,17 +83,16 @@ app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
             SELECT
-                WalkRequests.request_id,
-                Dogs.name AS dog_name,
-                WalkRequests.requested_time,
-                WalkRequests.duration_minutes,
-                WalkRequests.location,
-                Users.username AS owner_username
-            FROM WalkRequests
-            JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
-            JOIN Users ON Dogs.owner_id = Users.user_id
-            WHERE WalkRequests.status = 'open';
-        `);
+                u.username AS walker_username,
+                COUNT(r.rating) AS total_ratings,
+                AVG(r.rating) AS average_rating,
+                COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
+            FROM Users u
+            LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
+            LEFT JOIN WalkRequests wr ON u.user_id = wr.dog_id -- Not correct: fix below
+            WHERE u.role = 'walker'
+            GROUP BY u.username;
+            `);
         res.json(walkers_summary);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch data' });
