@@ -112,7 +112,13 @@
             displayer.innerHTML = '';
             data.forEach(dog => {
               const row = document.createElement('tr');
-              row.innerHTML = `Name: ${dog.name}`
+              row.innerHTML = `
+                <td>${dog.dog_id}</td>
+                <td>${dog.name}</td>
+                <td>${dog.size}</td>
+                <td>${dog.owner_id}</td>
+                <td><img src="${dog.photo}" alt="${dog.name}" class="img-thumbnail" style="width: 100px;"></td>
+              `;
               displayer.appendChild(row);
             });
           })
