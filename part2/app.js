@@ -128,10 +128,9 @@ app.get('/load_user_dogs', (req, res) => {
             return res.status(200).json(results); // return here
         }
 
-        return res.status(404).json({ message: 'No dogs found for this user' }); // return here
+        return res.status(404).json({ message: 'No dogs found for this user' }); 
     });
 
-    // Remove any res.status calls here — let the db.query callback handle the response.
 
 
 });
