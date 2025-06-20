@@ -84,11 +84,13 @@
           })
           .then(response => response.json())
           .then(data =>{
-            data.forEach(dog => {
+              const dogsList = document.getElementById('dogs_list');
+              dogsList.innerHTML = '';  // Clear existing options
+              data.forEach(dog => {
               const option = document.createElement('option');
               option.value = dog.name;
-              option.textContent = `${dog.name}`;
-              document.getElementById('dogs_list').appendChild(option);
+              option.textContent = dog.name;
+              dogsList.appendChild(option);
             });
 
           }) .catch(error => console.error('Failed to load dogs:', error));
