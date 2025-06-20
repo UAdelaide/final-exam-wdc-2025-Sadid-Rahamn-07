@@ -40,13 +40,13 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use((req, res, next) => {
-  if (!req.session.user) {
-    req.session.user = {
-      username: 'guest',
-      role: 'visitor'
-    };
-  }
-  next();
+    if (!req.session.user) {
+        req.session.user = {
+            username: 'guest',
+            role: 'visitor'
+        };
+    }
+    next();
 });
 
 
