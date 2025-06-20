@@ -47,10 +47,10 @@ app.post('/login', (req, res) => {
         }
         if (results.length > 0) {
             // User exists, send success response
-            res.status(200).json({ message: 'successful', user: results[0], success: true }); // Send the user data back
+            res.status(200).json({ message: 'Successful', user: results[0], success: true }); // Send the user data back
         } else {
             // User does not exist, send error response
-            res.status(401).json({ message: 'failed', error: 'Invalid username or password' });
+            res.status(401).json({ message: 'Failed', error: 'Invalid username or password' });
         }
     });
 });
