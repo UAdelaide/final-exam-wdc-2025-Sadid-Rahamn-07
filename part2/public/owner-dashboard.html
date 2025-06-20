@@ -75,6 +75,7 @@
       methods :
       {
         load_dogs(){
+           displayer = document.getElementById('dogs_list').innerHTML = '';
           fetch('load_user_dogs',{
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -82,7 +83,7 @@
           })
           .then(response => response.json())
           .then(data =>{
-            displayer = document.getElementById('dogs_list').innerHTML = '';
+
             data.forEach(dog => {
               const option = document.createElement('option');
               option.value = dog.name;
