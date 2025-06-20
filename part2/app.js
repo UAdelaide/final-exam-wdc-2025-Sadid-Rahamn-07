@@ -120,16 +120,19 @@ app.get('/load_user_dogs', (req, res) => {
     db.query(query, [username], (err, results) => {
         if (err) {
             console.error('Database query error:', err);
-            res.status(500).json({ error: 'Database query error' });
+            return res.status(500).json({ error: 'Database query error' }); // return here
         }
+
         if (results.length > 0) {
             console.log('User dogs:', results);
-            return res.status(200).json(results); // Send the list of dogs back
+            return res.status(200).json(results); // return here
         }
-        res.status(404).json({ message: 'No dogs found for this user' });
 
+        return res.status(404).json({ message: 'No dogs found for this user' }); // return here
     });
-    res.status(200).json({ message: 'This endpoint is not implemented yet' });
+
+    // Remove any res.status calls here — let the db.query callback handle the response.
+
 
 });
 
