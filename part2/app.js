@@ -106,11 +106,7 @@ app.get('load_user_dogs', (res, req) => {
     alert('no error');
     const username = req.session.user.username; // fetching username from session
     // SQL query to get all dogs for the user
-    const query =
-        `SELECT *
-        FROM Dogs
-        INNER JOIN Users ON Dogs.owner_id = Users.id
-        WHERE username = ?`;
+    const query = `SELECT * FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.id WHERE username = ?`;
     db.query(query, [username], (err, results) => {
         if (err) {
             console.error('Database query error:', err);
