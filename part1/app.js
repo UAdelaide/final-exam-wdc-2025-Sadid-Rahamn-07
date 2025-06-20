@@ -73,6 +73,8 @@ app.get('/walkrequests/open', async (req, res) => {
 app.get('/walkers/summary', async (req, res) => {
     try {
         const [walkers_summary] = await db.execute(`
+            ALTER TABLE Customers
+            ADD Email varchar(255);
             SELECT Users.username, Users.role, WalkRequests.
             FROM WalkRatings
             JOIN Users ON WalkRatings.walker_id = Users.user_id
