@@ -74,7 +74,7 @@
     createApp({
       methods :
       {
-        // Function to load user's dogs from the server
+        // Function to load user's dogs from the local database
         load_dogs(){
           const displayer = document.getElementById('dogs_list');
           displayer.innerHTML = '';
@@ -97,6 +97,7 @@
           }) .catch(error => console.error('Failed to load dogs:', error));
         },
 
+        // Function to handle user logout
         logout()
           {
             fetch('/logout', {
