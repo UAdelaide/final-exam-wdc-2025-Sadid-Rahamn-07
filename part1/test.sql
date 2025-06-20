@@ -11,7 +11,7 @@ INSERT INTO Dogs (owner_id, name, size)
 VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-((SELECT user_id FROM Users WHERE username = 'alice123'), 'Charlie', 'large'),
+((SELECT user_id FROM Users WHERE username = 'dave369'), 'Charlie', 'large'),
 ((SELECT user_id FROM Users WHERE username = 'emily123'), 'Daisy', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Rocky', 'small');
 
