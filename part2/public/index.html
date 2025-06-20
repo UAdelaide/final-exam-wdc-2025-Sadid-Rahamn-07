@@ -132,17 +132,22 @@
         },
 
       // fetch Dog photo
-      get_Dogphoto() {
-        fetch('https://dog.ceo/api/breeds/image/random',
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+        get_Dogphoto() {
+          fetch('https://dog.ceo/api/breeds/image/random',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            this.dog_photo = data.message; // Assuming the API returns a URL in 'message'
+            return this.dog_photo; // Return the photo URL
+          })
 
 
-      }
+        }
       },
       mounted() {
         // Fetch the registered dogs data when the component is mounted
