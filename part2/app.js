@@ -83,7 +83,7 @@ app.post('/login', (req, res) => {
                     user: results[0],
                     success: true
                 }
-); // Send the user data back
+            ); // Send the user data back
 
         } else {
             // User does not exist, send error response
@@ -108,7 +108,7 @@ app.get('load_user_dogs', (res, req) => {
     // SQL query to get all dogs for the user
     const query = 'SELECT * FROM Dogs WHERE owner_username = ?';
     db.query(query, [username], (err, results) => {
-
+        
     });
 
 
