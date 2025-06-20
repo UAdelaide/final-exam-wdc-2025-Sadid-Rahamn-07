@@ -116,6 +116,7 @@ app.get('/dogs', (req, res) => {
 
 app.get('/session', (req, res) => {
     if (req.session.user) {
+        console.log('Session user:', req.session.user);
         res.json({
             sessionUser: req.session.user
         });
