@@ -66,6 +66,7 @@
           message: 'Welcome to the Dog Walking Service!',
           username: '',
           password: '',
+          dogs: []  // initial empty array
         };
       },
       methods: {
@@ -107,24 +108,7 @@
             }
             .then(response => response.json())
             .then(data =>{
-              const tbody = document.querySelector('.registered_dog_table tbody');
-              if (!tbody) {
-                console.error('Table body not found');
-                return;
-              }
-
-              tbody.innerHTML = ''; // clear existing rows
-
-              data.forEach(dog => {
-                const row = document.createElement('tr');
-
-                row.innerHTML = `
-                  <td>${dog.name || ''}</td>
-                  <td>${dog.breed || ''}</td>
-                  <td>${dog.owner || ''}</td>
-                `;
-
-                tbody.appendChild(row);
+             
               });
             })
           })
