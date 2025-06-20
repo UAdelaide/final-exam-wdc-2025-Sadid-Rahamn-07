@@ -63,7 +63,7 @@ app.get('/walkrequests/open', async (req, res) => {
             Dogs.size AS dog_size,
             FROM WalkRequests
             JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
-            WHERE status = "open"
+            WHERE status = "open";
         `);
         res.json(dogs_data);
     } catch (err) {
