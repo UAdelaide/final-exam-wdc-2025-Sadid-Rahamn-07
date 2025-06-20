@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       JOIN Users u ON d.owner_id = u.user_id
       WHERE wr.status = 'open'
     `);
-    //console.log('Walk requests fetched:', rows);
+    // console.log('Walk requests fetched:', rows);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
