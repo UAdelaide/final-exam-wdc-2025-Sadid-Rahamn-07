@@ -58,6 +58,7 @@ app.post('/login', (req, res) => {
                 username: user.username,
                 role: user.role
             };
+            console.log(req.session.user);
             delete user.password_hash;
             res.status(200).json(
                 {
