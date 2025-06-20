@@ -108,8 +108,8 @@
             }
             .then(response => response.json())
             .then(data =>{
-             
-              });
+             this.dogs = data;  // fill dogs array with data from backend
+
             })
           })
         }
