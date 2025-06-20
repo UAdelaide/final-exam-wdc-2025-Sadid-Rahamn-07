@@ -82,8 +82,13 @@
           })
           .then(response => response.json())
           .then(data => {
-            if (data) {
-
+            if (data.success) {
+              // If login is successful, redirect to the appropriate dashboard
+              if (data.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              } else if (data.role === 'walker') {
+                window.location.href = 'walker-dashboard.html';
+              }
             } else {
               alert('Login failed: ' + data.message);
             }
