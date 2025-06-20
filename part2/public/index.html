@@ -68,8 +68,9 @@
       methods: {
         fetchUserData() {
           fetch('/login',{
+            // Specify the method as POST for login
             method: 'POST',
-            
+            // Set the headers to indicate JSON content
             headers: {
               'Content-Type': 'application/json'
             },
