@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 require('dotenv').config();
-
 const app = express();
 
 // database connection
