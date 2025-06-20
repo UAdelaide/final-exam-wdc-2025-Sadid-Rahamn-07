@@ -103,7 +103,7 @@
             .then(data =>{
               data.forEach(dog => {
                 displayer = document.querySelector('');
-                document.querySelector('.registered_dog_table tbody').innerHTML += `
+                document.querySelector('.table table-striped tbody').innerHTML += `
                   <tr>
                     <td>${dog.name}</td>
                     <td>${dog.dog_id}</td>
