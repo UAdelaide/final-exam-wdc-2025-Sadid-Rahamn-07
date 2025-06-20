@@ -23,15 +23,4 @@ VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-11 10:00:00', 60, 'Botanic Gardens', 'open'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Daisy'), '2025-06-12 07:15:00', 30, 'North Terrace', 'cancelled'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-12 08:15:00', 15, 'North Terrace', 'Completed');
-*/
-
-INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
-VALUES
-(
-  (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
-  (SELECT user_id FROM Users WHERE username = 'bobwalker'),
-  (SELECT user_id FROM Users WHERE username = 'alice123'),
-  5,
-  'Great walk!',
-  '2025-06-10 08:00:00'
-);
+*/W
