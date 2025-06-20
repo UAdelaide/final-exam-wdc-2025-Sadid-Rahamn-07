@@ -32,7 +32,6 @@ router.get('/me', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  console.log('Session user:', req.session.user);
   res.json(req.session.user);
 });
 
