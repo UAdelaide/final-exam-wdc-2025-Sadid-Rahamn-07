@@ -89,7 +89,6 @@
                 this.$router.push('/owner-dashboard');
               } else if (data.role === 'walker') {
                 this.$router.push('/walker-dashboard');
-                window.location.href = 'walker-dashboard.html';
               }
             } else {
               alert('Login: ' + data.message);
