@@ -22,6 +22,8 @@ connection.connect((err) => {
     console.log('Connected to the database successfully');
 });
 
+mysql.
+
 
 // Middleware
 app.use(express.json());
