@@ -97,6 +97,7 @@ app.post('/logout', (req, res) => {
             console.error('Session destruction error:', err);
             return res.status(500).json({ error: 'Failed to log out' });
         }
+        alert('')
         res.status(200).json({ message: 'Logged out successfully' });
 
     })
