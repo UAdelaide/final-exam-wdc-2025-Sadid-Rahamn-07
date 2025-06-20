@@ -82,7 +82,7 @@
               username: this.username,
               password: this.password
             }),
-            credentials: 'include' // Important! Sends the session cookie
+            credentials: 'include' // Sends the session cookie
           })
           .then(response => response.json())
           .then(data => {
