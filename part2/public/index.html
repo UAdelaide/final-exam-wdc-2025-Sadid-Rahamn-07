@@ -68,6 +68,11 @@
       methods: {
         fetchUserData() {
           fetch('/login')
+          .then(response => response.json())
+            .then(data => {
+              this.showDiv = data.loggedIn;
+            })
+            .catch(error => console.error('Error fetching user data:', error));
         }
       },
     }).mount('#app');
