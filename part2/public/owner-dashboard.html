@@ -81,7 +81,9 @@
             credentials: 'include' // Include credentials for user session
           })
           .then(response => response.json())
-          .then(data =)
+          .then(data =>{
+            document.getElementById('dogs_list').innerHTML = '';
+          })
         },
 
         logout()
