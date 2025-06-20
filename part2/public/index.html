@@ -109,6 +109,12 @@
               'Content-Type': 'application/json'
             }
           })
+          fetch('https://dog.ceo/api/breeds/image/random'{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
           .then(response => response.json())
           .then(data => {
             const displayer = document.querySelector('tbody');
