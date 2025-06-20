@@ -13,7 +13,7 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
 ((SELECT user_id FROM Users WHERE username = 'dave369'), 'Charlie', 'large'),
 ((SELECT user_id FROM Users WHERE username = 'emily123'), 'Daisy', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'carol123'), 'Rocky', 'small');
+((SELECT user_id FROM Users WHERE username = 'bobwalker'), 'Rocky', 'small');
 
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES
