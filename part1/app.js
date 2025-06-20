@@ -59,7 +59,8 @@ app.get('/walkrequests/open', async (req, res) => {
         const [dogs_data] = await db.execute(`
             SELECT
                 WalkRequests.request_id,
-                Dogs.name, WalkRequests.requested_time,
+                Dogs.name AS dog_name,
+                WalkRequests.requested_time,
                 WalkRequests.duration_minutes,
                 WalkRequests.location,
                 Users.username,
