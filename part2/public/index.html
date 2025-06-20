@@ -105,7 +105,7 @@
             .then(response => response.json())
             .then(data =>{
               data.forEach(dog => {
-                displayer = document.getElementById('table');
+                displayer = document.getElementById('#table');
                 document.querySelector('.table table-striped tbody').innerHTML += `
                   <tr>
                     <td>${dog.name}</td>
