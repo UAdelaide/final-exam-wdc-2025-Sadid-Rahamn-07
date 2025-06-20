@@ -120,7 +120,7 @@ app.get('/load_user_dogs', (req, res) => {
         }
 
         if (results.length > 0) {
-            // console.log('User dogs:', results);
+            console.log('User dogs:', results);
             return res.status(200).json(results);
         }
 
