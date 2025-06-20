@@ -90,7 +90,7 @@
               data.forEach(dog => {
               const option = document.createElement('option');
               option.value = dog.dog_id;
-              option.textContent = dog.name;
+              option.textContent = dog.dog.id;
               dogsList.appendChild(option);
             });
 
