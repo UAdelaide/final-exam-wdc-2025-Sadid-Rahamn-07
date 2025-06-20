@@ -103,7 +103,7 @@
         },
 
         //fetches the dogs data from the database
-        async fetchDogs_Data() {
+        fetchDogs_Data() {
           fetch('/dogs', {
             method: 'GET',
             headers: {
@@ -116,7 +116,7 @@
             displayer.innerHTML = '';
             data.forEach(dog => {
               const row = document.createElement('tr');
-              const dog_photo = await this.get_Dogphoto();
+              dog_photo = this.get_Dogphoto();
               row.innerHTML = `
                 <td>${dog.dog_id}</td>
                 <td>${dog.name}</td>
