@@ -110,8 +110,7 @@ app.get('/load_user_dogs', (res, req) => {
     const query = `
         SELECT *
         FROM Dogs
-        INNER JOIN Users ON Dogs.owner_id = Users.user_id
-        WHERE Users.username = ?`;
+        `;
     db.query(query, [username], (err, results) => {
         if (err) {
             console.error('Database query error:', err);
