@@ -102,6 +102,8 @@ app.post('/logout', (req, res) => {
     })
 })
 
+app.get('load_user_dogs', (res))
+
 app.get('/dogs', (req, res) => {
     // SQL query to get all dogs
     const dogs_sql = 'SELECT * FROM Dogs';
