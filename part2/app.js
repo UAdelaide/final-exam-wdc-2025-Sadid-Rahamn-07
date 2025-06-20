@@ -104,7 +104,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/load_user_dogs', (res, req) => {
-    if (!req.session.user || !req.session.user.username) {
+    if (!req.session || !req.session.user) {
         return res.status(401).json({ error: 'User not authenticated' });
     }
 
