@@ -107,7 +107,16 @@
             }
             .then(response => response.json())
             .then(data =>{
-              
+              document.querySelector('.registered_dog_table tbody').innerHTML = '';
+              data.dogs.forEach(dog => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                  <td>${dog.name}</td>
+                  <td>${dog.breed}</td>
+                  <td>${dog.owner}</td>
+                `;
+                document.querySelector('.registered_dog_table tbody').appendChild(row);
+              });
             })
           })
         }
