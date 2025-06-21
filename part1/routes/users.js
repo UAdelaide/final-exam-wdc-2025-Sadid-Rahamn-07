@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('./'); // Import the database connection
+var db = require('./db'); // Import the database connection
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
