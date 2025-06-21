@@ -38,22 +38,22 @@
     <!-- Register User -->
     <div v-else="!showDiv" class="user_login_form">
         <form @submit.prevent="fetchUserData" method="post">
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="username" class="form-label">Username</label>
             <input v-model="username" type="text" class="form-control" id="new_username" required>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="email" class="form-label">Email</label>
             <input v-model="email" type="text" class="form-control" id="user_email" required>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="role" class="form-label">password</label>
             <input v-model="password" type="text" class="form-control" id="user_role" required>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="role" class="form-label">Role</label>
             <select v-model="role" class="form-select" id="signup_role" required>
                 <option disabled value="">Select role</option>
@@ -62,7 +62,7 @@
             </select>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
           <label for="created_at" class="form-label">Created At</label>
           <input
             :value="createdAt"
