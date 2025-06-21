@@ -50,14 +50,11 @@ app.use('/api/users', userRoutes);
 
 
 app.post('/login', (req, res) => {
-
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
-
     //  takes username and password from the request body from vue(fetch('/login')))
     const { username, password } = req.body;
     db.query(sql, [username, password], (err, results) => {
-
         if (err) {
             console.error('Database query error:', err);
             return res.status(500).json({ error: 'Database query error' });
@@ -81,7 +78,6 @@ app.post('/login', (req, res) => {
                     success: true
                 }
             ); // Send the user data back
-
         } else {
             // User does not exist, send error response
             res.status(401).json({ message: 'Failed', error: 'Invalid username or password' });
