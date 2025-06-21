@@ -18,21 +18,16 @@ router.get('/', async (req, res) => {
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
-  console.log('Registering user:', { username, email, role });
+
   try {
     const [result] = await db.query(`
       INSERT INTO Users (username, email, password_hash, role)
-      // VALUES (?, ?, ?, ?)
+      VALUES (?, ?, ?, ?)
     `, [username, email, password, role]);
 
-    res.status(201).json({
-      success: true,
-      message: 'User registered'
-    });
-
+    res.status(201).json({ message: 'User registered', user_id: result.insertId });
   } catch (error) {
-    console.error('Registration error:', error);
-    res.status(500).json({ success: false, message: 'Registration failed' });
+    res.status(500).json({ error: 'Registration failed' });
   }
 });
 
@@ -75,10 +70,11 @@ router.post('/logout', (req, res) => {
       return res.status(500).json({ error: 'Failed to log out' });
     }
     res.status(200).json({ message: 'Logged out successfully' });
+
   });
 });
 
-router.get('/load_user_dogs', async (req, res) => {
+router.get('/load_user_dogs', a(req, res) => {
   if (!req.session || !req.session.user) {
     return res.status(401).json({ error: 'User not authenticated' });
   }
@@ -97,8 +93,9 @@ router.get('/load_user_dogs', async (req, res) => {
 
     if (results.length > 0) {
       return res.status(200).json(results);
+    } else {
+      return res.status(404).json({ message: 'No dogs found for this user' });
     }
-    return res.status(404).json({ message: 'No dogs found for this user' });
   } catch (err) {
     console.error('Database query error:', err);
     return res.status(500).json({ error: 'Database query error' });
