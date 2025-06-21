@@ -267,7 +267,7 @@ VALUES
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES((SELECT request_id FROM WalkRequests WHERE location = 'Parklands' LIMIT 1),(SELECT user_id FROM Users WHERE username = 'bobwalker' LIMIT 1),'accepted');z
 */
-SELECT status, COUNT(*) FROM WalkRequests GROUP BY status;
+
 /*
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE WalkRatings;
