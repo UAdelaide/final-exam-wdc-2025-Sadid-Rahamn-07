@@ -48,7 +48,7 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 
-
+/*
 app.post('/login', (req, res) => {
     // SQL query to check if the user exists
     const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
@@ -84,6 +84,7 @@ app.post('/login', (req, res) => {
         }
     });
 });
+*/
 
 app.post('/logout', (req, res) => {
     req.session.destroy((err) => {
