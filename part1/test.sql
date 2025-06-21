@@ -132,7 +132,7 @@ VALUES
 );
 */
 /*
--- Insert users first
+
 INSERT INTO Users (username, email, password_hash, role) VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
@@ -148,7 +148,6 @@ INSERT INTO Dogs (owner_id, name, size) VALUES
 ((SELECT user_id FROM Users WHERE username = 'emily123' LIMIT 1), 'Daisy', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'bobwalker' LIMIT 1), 'Rocky', 'small');
 
--- Then insert walk requests
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Max' LIMIT 1), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Bella' LIMIT 1), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
@@ -156,7 +155,7 @@ INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, st
 ((SELECT dog_id FROM Dogs WHERE name = 'Daisy' LIMIT 1), '2025-06-12 07:15:00', 30, 'North Terrace', 'cancelled'),
 ((SELECT dog_id FROM Dogs WHERE name = 'Rocky' LIMIT 1), '2025-06-12 08:15:00', 15, 'North Terrace', 'completed');
 
--- Then insert walk applications
+
 INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
 (
   (SELECT request_id FROM WalkRequests WHERE location = 'Parklands' LIMIT 1),
