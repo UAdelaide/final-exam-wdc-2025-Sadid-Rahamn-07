@@ -163,10 +163,10 @@
           .then(data => {
             if (data.success) {
               alert('Signup successful');
-               this.signupUsername = '';
-        this.signupEmail = '';
-        this.signupPassword = '';
-        this.role = '';
+              this.signupUsername = '';
+              this.signupEmail = '';
+              this.signupPassword = '';
+              this.role = '';
               this.showDiv = true; // switch to login
             } else {
               alert('Signup failed: ' + data.message);
