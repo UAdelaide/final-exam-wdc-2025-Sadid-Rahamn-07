@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST login (dummy version)
-router.post('/login', (req, res) => {
+router.post('/', (req, res) => {
   console.log('Login route hit');
   // SQL query to check if the user exists
   const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
