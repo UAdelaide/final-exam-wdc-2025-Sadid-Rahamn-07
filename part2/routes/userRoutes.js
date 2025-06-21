@@ -88,7 +88,6 @@ router.get('/load_user_dogs', (req, res) => {
         INNER JOIN Users ON Dogs.owner_id = Users.user_id
         WHERE Users.username = ?
         `;
-  
   db.query(query, [username], (err, results) => {
     if (err) {
       console.error('Database query error:', err);
