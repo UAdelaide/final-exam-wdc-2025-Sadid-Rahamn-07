@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -9,7 +10,13 @@ require('dotenv').config();
 const app = express();
 
 // database connection
-
+const db = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: 'DogWalkService',
+    connectionLimit: 10
+});
 
 // Middleware
 app.use(express.json());
@@ -141,6 +148,6 @@ app.get('/session', (req, res) => {
         res.status(401).json({ message: 'No active session' });
     }
 });
-*/
+
 // Export the app instead of listening here
 module.exports = app;
