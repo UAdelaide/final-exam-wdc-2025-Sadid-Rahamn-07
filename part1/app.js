@@ -42,8 +42,8 @@ let db;
 
 
 // Routers
-app.use('/apiusers', require('./routes/users'));
-app.use('/dogs', require('./routes/index'));
+app.use('/api', require('./routes/users'));
+app.use('/', require('./routes/index'));
 // Route to return dogs as JSON
 app.get('/dogs', async (req, res) => {
     try {
