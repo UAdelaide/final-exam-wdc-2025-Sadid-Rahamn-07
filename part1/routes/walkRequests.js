@@ -2,22 +2,26 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-router.get('/open', (req, res) => {
-  const sql = `
-    SELECT wr.request_id, d.name AS dog_name, wr.requested_time,
-           wr.duration_minutes, wr.location, wr.status
-    FROM WalkRequests wr
-    JOIN Dogs d ON wr.dog_id = d.dog_id
-    WHERE wr.status = 'open';
-  `;
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Error fetching open walk requests:', err);
-      return res.status(500).json({ error: 'Database error' });
+// Route to return walkrequests that are open as JSON
+app.get('api/walkrequests/open', async (req, res) => {
+    try {
+        const [walkrequests_open] = await db.execute(`
+            SELECT
+                WalkRequests.request_id,
+                Dogs.name AS dog_name,
+                WalkRequests.requested_time,
+                WalkRequests.duration_minutes,
+                WalkRequests.location,
+                Users.username AS owner_username
+            FROM WalkRequests
+            JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
+            JOIN Users ON Dogs.owner_id = Users.user_id
+            WHERE status = "open"
+        `);
+        res.json(walkrequests_open);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch data' });
     }
-    res.json(results);
-  });
 });
 
 module.exports = router;
