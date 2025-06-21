@@ -59,7 +59,7 @@ VALUES
 INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
 VALUES
 (
-  (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
+  (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella') LIMIT 1),
   (SELECT user_id FROM Users WHERE username = 'bobwalker'),
   (SELECT user_id FROM Users WHERE username = 'alice123'),
   4.5,
