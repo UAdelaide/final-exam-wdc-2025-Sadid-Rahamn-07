@@ -145,30 +145,33 @@
           })
         },
 
-        handleSignup() {
-          // Handle user signup logic here
+          handleSignup() {
+          const signupData = {
+            username: this.signupUsername,
+            email: this.signupEmail,
+            password: this.signupPassword,
+            role: this.role,
+            created_at: this.createdAt
+          };
+
           fetch('/api/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              username: this.new_username,
-              email: this.new_email,
-              password: this.new_password,
-              role: this.role,
-              created_at: this.createdAt
-            }),
-            credentials: 'include' // Sends the session cookie
+            body: JSON.stringify(signupData),
+            credentials: 'include'
           })
-          .then(response => response.json())
+          .then(res => res.json())
           .then(data => {
             if (data.success) {
-              alert('Signup successful! ' + data.message);
-              window.location.href = '/'; // Redirect to login page
+              alert('Signup successful');
+              this.showDiv = true; // switch to login
             } else {
               alert('Signup failed: ' + data.message);
             }
-          });
-        },
+          })
+          .catch(err => alert('Signup error'));
+        }
+      },
 
         //fetches the dogs data from the database
         async fetchDogs_Data() {
