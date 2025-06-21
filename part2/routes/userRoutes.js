@@ -3,15 +3,7 @@
 /* eslint-disable object-curly-newline */
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql2');
-require('dotenv').config();
-const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: 'DogWalkService',
-  connectionLimit: 10
-});
+const db = require('../models/db');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
