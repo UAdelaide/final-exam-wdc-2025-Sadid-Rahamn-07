@@ -80,7 +80,18 @@ router.post('/logout', (req, res) => {
   });
 });
 
-
+// GET all dogs
+router.get('/dogs', (req, res) => {
+  // SQL query to get all dogs
+  const dogs_sql = 'SELECT * FROM Dogs';
+  db.query(dogs_sql, (err, results) => {
+    if (err) {
+      console.error('Database query error:', err);
+      return res.status(500).json({ error: 'Database query error' });
+    }
+    res.status(200).json(results); // Send the list of dogs back
+  });
+});
 
 // GET current user (me)
 router.get('/me', (req, res) => {
