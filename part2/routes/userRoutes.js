@@ -4,6 +4,11 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+
+require('dotenv').config();
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
