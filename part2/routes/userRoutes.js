@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
   try {
     const [result] = await db.query(`
       INSERT INTO Users (username, email, password_hash, role, created_at)
-      // VALUES (?, ?, ?, ?, ?)
+      // VALUES (?, ?, ?, ?)
     `, [username, email, password, role, created_at]);
 
     res.status(201).json({
