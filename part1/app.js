@@ -1,10 +1,8 @@
-/* eslint-disable no-console */
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-require('dotenv').config();
-
+var mysql = require('mysql2/promise');
 
 var app = express();
 
@@ -40,15 +38,8 @@ let db;
     }
 })();
 
-// Middleware
-
-
-// Routers
-app.use('/api/', require('./routes/users'));
-app.use('/', require('./routes/index'));
-
 // Route to return dogs as JSON
-app.get('/dogs', async (req, res) => {
+app.get('api/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
             SELECT
