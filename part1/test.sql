@@ -63,6 +63,6 @@ VALUES
   (SELECT user_id FROM Users WHERE username = 'bobwalker'),
   (SELECT user_id FROM Users WHERE username = 'alice123'),
   4.5,
-  'Great walk!',
-  '2025-06-10 08:00:00'
+  'good walk!',
+  '2025-06-10 10:00:00'
 );
