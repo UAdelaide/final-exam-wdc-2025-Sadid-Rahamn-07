@@ -47,7 +47,7 @@
       methods: {
         logout()
           {
-            fetch('/logout', {
+            fetch('/api/users/logout', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include' // Include credentials for user session
