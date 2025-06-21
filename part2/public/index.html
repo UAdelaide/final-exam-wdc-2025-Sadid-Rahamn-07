@@ -71,30 +71,8 @@
           />
         </div>
 
-        <div class="mb-2">
-          <label for="signup_role" class="form-label">Role</label>
-          <select
-            v-model="role"
-            class="form-select"
-            id="signup_role"
-            required
-          >
-            <option value="" disabled>Select role</option>
-            <option value="owner">Owner</option>
-            <option value="walker">Walker</option>
-          </select>
-        </div>
 
-        <div class="mb-2">
-          <label for="created_at" class="form-label">Created At (auto)</label>
-          <input
-            :value="createdAt"
-            type="text"
-            class="form-control"
-            id="created_at"
-            disabled
-          />
-        </div>
+
 
         <button type="submit" class="btn btn-primary">
           Register
