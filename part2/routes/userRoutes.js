@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
-
+  
   try {
     const [result] = await db.query(`
       INSERT INTO Users (username, email, password_hash, role)
@@ -70,7 +70,6 @@ router.post('/logout', (req, res) => {
       return res.status(500).json({ error: 'Failed to log out' });
     }
     res.status(200).json({ message: 'Logged out successfully' });
-
   });
 });
 
@@ -95,7 +94,6 @@ router.get('/load_user_dogs', async (req, res) => {
       return res.status(200).json(results);
     }
     return res.status(404).json({ message: 'No dogs found for this user' });
-
   } catch (err) {
     console.error('Database query error:', err);
     return res.status(500).json({ error: 'Database query error' });
