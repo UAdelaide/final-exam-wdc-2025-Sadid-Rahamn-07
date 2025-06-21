@@ -56,10 +56,10 @@
           <div class="mb-2">
             <label for="role" class="form-label">Role</label>
             <select v-model="role" class="form-select" id="signup_role" required>
-  <option disabled value="">Select role</option>
-  <option value="owner">Owner</option>
-  <option value="walker">Walker</option>
-</select>
+                <option disabled value="">Select role</option>
+                <option value="owner">Owner</option>
+                <option value="walker">Walker</option>
+            </select>
           </div>
 
 
@@ -67,6 +67,7 @@
             <label for="role" class="form-label">creation_time</label>
             <input v-model="role" type="text" class="form-control" id="user_role" required>
           </div>
+
           <button v-on:click="showDiv=true" type="button" class="btn btn-primary">Login</button>
           <button  style="float: right;" type="submit" class="btn btn-primary">Signup</button>
         </form>
