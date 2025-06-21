@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable object-curly-newline */
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
@@ -14,9 +16,7 @@ router.get('/', async (req, res) => {
 
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
-  const {
- username, email, password, role
-} = req.body;
+  const { username, email, password, role } = req.body;
 
   try {
     const [result] = await db.query(`
