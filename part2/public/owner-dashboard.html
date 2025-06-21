@@ -100,7 +100,7 @@
         // Function to handle user logout
         logout()
           {
-            fetch('api/users/logout', {
+            fetch('/api/users/login', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include' // Include credentials for user session
