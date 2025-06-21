@@ -68,6 +68,17 @@
             <input v-model="role" type="text" class="form-control" id="user_role" required>
           </div>
 
+          <div class="mb-2">
+          <label for="created_at" class="form-label">Created At</label>
+          <input
+            :value="createdAt"
+            type="text"
+            class="form-control"
+            id="created_at"
+            readonly
+          />
+          </div>
+
           <button v-on:click="showDiv=true" type="button" class="btn btn-primary">Login</button>
           <button  style="float: right;" type="submit" class="btn btn-primary">Signup</button>
         </form>
