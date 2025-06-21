@@ -46,59 +46,6 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-/*
-app.post('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            console.error('Session destruction error:', err);
-            return res.status(500).json({ error: 'Failed to log out' });
-        }
-        res.status(200).json({ message: 'Logged out successfully' });
-
-    });
-});
-
-app.get('/load_user_dogs', (req, res) => {
-    if (!req.session || !req.session.user) {
-        return res.status(401).json({ error: 'User not authenticated' });
-    }
-
-    const username = req.session.user.username;
-
-    // SQL query to get all dogs for the user
-    const query = `
-        SELECT Dogs.name, Dogs.dog_id
-        FROM Dogs
-        INNER JOIN Users ON Dogs.owner_id = Users.user_id
-        WHERE Users.username = ?
-        `;
-    db.query(query, [username], (err, results) => {
-        if (err) {
-            console.error('Database query error:', err);
-            return res.status(500).json({ error: 'Database query error' }); // return here
-        }
-
-        if (results.length > 0) {
-            // console.log('User dogs:', results);
-            return res.status(200).json(results);
-        }
-
-        return res.status(404).json({ message: 'No dogs found for this user' });
-    });
-});
-
-app.get('/dogs', (req, res) => {
-    // SQL query to get all dogs
-    const dogs_sql = 'SELECT * FROM Dogs';
-    db.query(dogs_sql, (err, results) => {
-        if (err) {
-            console.error('Database query error:', err);
-            return res.status(500).json({ error: 'Database query error' });
-        }
-        res.status(200).json(results); // Send the list of dogs back
-    });
-});
-*/
 app.get('/session', (req, res) => {
     if (req.session.user) {
         console.log('Session user:', req.session.user);
