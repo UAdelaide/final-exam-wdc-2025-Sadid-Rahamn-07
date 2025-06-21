@@ -3,7 +3,7 @@
 /* eslint-disable object-curly-newline */
 const express = require('express');
 const router = express.Router();
-const db = require('../routes');
+const db = require('');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
