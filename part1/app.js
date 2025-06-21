@@ -10,7 +10,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-tr
+
 let db;
 
 (async () => {
@@ -37,6 +37,11 @@ let db;
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
 })();
+
+//
+
+
+// Routers
 
 // Route to return dogs as JSON
 app.get('/dogs', async (req, res) => {
