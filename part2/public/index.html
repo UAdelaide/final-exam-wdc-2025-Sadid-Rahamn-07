@@ -40,12 +40,7 @@
     <form @submit.prevent="handleSignup">
       <div class="mb-3">
         <label for="new_username" class="form-label">Username</label>
-        <input
-          v-model="username"
-          type="text"
-          class="form-control"
-          id="new_username"
-          required
+        <input v-model="username" type="text" class="form-control" id="new_username" required
         />
       </div>
 
