@@ -66,7 +66,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        ler user = 3;
+        const user = ref(null);
 
         async function loadWalkRequests() {
           try {
@@ -88,7 +88,7 @@
             const data = await response.json();
 
             if (data.success) {
-              user = data.id;
+              user.value = data.id;
               console.log('Current user ID:', user);
             } else {
               error.value = 'User not found';
