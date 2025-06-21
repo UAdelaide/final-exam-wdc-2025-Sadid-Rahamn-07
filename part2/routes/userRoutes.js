@@ -21,7 +21,7 @@ router.post('/register', async (req, res) => {
   console.log('Registering user:', { username, email, role });
   try {
     const [result] = await db.query(`
-      INSERT INTO Users (username, email, password_hash, role)
+      INSERT INTO Users (username, email, password_hash, role, createdAT)
       // VALUES (?, ?, ?, ?, ?)
     `, [username, email, password, role]);
 
