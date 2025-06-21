@@ -102,7 +102,7 @@
         //fetches the dogs data from the database
         async fetchDogs_Data() {
           try {
-            const response = await fetch('/dogs', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
+            const response = await fetch('/api/users/dogs', { method: 'GET', headers: { 'Content-Type': 'application/json' } });
             const data = await response.json();
 
             const displayer = document.querySelector('tbody');
