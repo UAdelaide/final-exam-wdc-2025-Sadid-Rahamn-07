@@ -81,10 +81,10 @@ router.post('/logout', (req, res) => {
 });
 
 // GET all dogs
-router.get('/dogs', async (req, res) => {
+router.get('/dogs', (req, res) => {
   // SQL query to get all dogs
   const dogs_sql = 'SELECT * FROM Dogs';
-  await db.query(dogs_sql, (err, results) => {
+  db.query(dogs_sql, (err, results) => {
     if (err) {
       console.error('Database query error:', err);
       return res.status(500).json({ error: 'Database query error' });
