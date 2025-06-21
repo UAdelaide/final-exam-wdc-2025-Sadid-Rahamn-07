@@ -153,7 +153,7 @@
           role: this.role,
           created_at: this.createdAt
           };
-
+          console.log('Signup Data:', signupData);
           fetch('/api/users/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
