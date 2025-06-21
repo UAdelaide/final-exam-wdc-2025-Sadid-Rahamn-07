@@ -4,9 +4,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
 
-app.use(express.static(path.join(__dirname, 'public')));
 var app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
