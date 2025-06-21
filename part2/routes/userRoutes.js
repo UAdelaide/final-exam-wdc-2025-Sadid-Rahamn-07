@@ -48,7 +48,7 @@ router.post('/login', (req, res) => {
   const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
   //  takes username and password from the request body from vue(fetch('/login')))
   const { username, password } = req.body;
-  db.query(sql, [username, password], (err, results) => {
+  await db.query(sql, [username, password], (err, results) => {
     if (err) {
       console.error('Database query error:', err);
       return res.status(500).json({ error: 'Database query error' });
