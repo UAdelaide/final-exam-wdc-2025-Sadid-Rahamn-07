@@ -45,7 +45,7 @@ const walkRequestsRouter = require('./routes/walkRequests');
 const walkersRouter = require('./routes/walkers');
 
 // Use routers
-app.use('/api/dogs', dogsRouter);
+app.use('/api/', dogsRouter);
 app.use('/api/walkrequests', walkRequestsRouter);
 app.use('/api/walkers', walkersRouter);
 
