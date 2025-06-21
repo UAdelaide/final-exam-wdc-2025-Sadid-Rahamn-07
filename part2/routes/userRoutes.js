@@ -6,7 +6,7 @@ const router = express.Router();
 const db = require('../models/db');
 
 // POST login (dummy version)
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
   console.log('Login route hit');
   // SQL query to check if the user exists
   const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
