@@ -31,17 +31,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.get('/me', (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Not logged in' });
-  }
-  res.json({
-    success: true,
-    id: req.session.user.id,
-    role: req.session.user.role
-  });
-});
-
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   // SQL query to check if the user exists
@@ -78,5 +67,18 @@ router.post('/login', async (req, res) => {
     }
   });
 });
+
+router.get('/me', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+  res.json({
+    success: true,
+    id: req.session.user.id,
+    role: req.session.user.role
+  });
+});
+
+
 
 module.exports = router;
