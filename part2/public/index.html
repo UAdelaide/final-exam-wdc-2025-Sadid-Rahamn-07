@@ -36,7 +36,7 @@
     </div>
 
     <!-- Register User -->
-    <div v-if="!showDiv" class="user_signup_form">
+    <div v-else="!showDiv" class="user_signup_form">
       <form @submit.prevent="handleSignup">
         <div class="mb-2">
           <label for="signup_username" class="form-label">Username</label>
