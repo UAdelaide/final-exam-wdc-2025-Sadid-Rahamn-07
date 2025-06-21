@@ -193,3 +193,11 @@ INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rate
   '2025-06-10 10:00:00'
 );
 */
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE WalkRatings;
+TRUNCATE TABLE WalkApplications;
+TRUNCATE TABLE WalkRequests;
+TRUNCATE TABLE Dogs;
+TRUNCATE TABLE Users;
+SET FOREIGN_KEY_CHECKS = 1;
