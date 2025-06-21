@@ -41,9 +41,7 @@
 
   <script>
     const { createApp, ref, onMounted } = Vue;
-
     createApp({
-
       methods: {
         logout()
           {
@@ -86,7 +84,6 @@
             });
 
             const data = await response.json();
-
             if (data.success) {
               user.value = {id : data.id};
               console.log('Current user ID:', user.value.id);
@@ -106,9 +103,7 @@
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ walker_id: user.value.id })
             });
-
             const result = await res.json();
-
             if (!res.ok) throw new Error(result.error || 'Application failed');
             message.value = result.message;
             error.value = '';
