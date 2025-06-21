@@ -74,7 +74,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-router.get('/load_user_dogs', (req, res) => {
+router.get('/load_user_dogs', async (req, res) => {
   if (!req.session || !req.session.user) {
     return res.status(401).json({ error: 'User not authenticated' });
   }
@@ -93,9 +93,8 @@ router.get('/load_user_dogs', (req, res) => {
 
     if (results.length > 0) {
       return res.status(200).json(results);
-    } else {
-      return res.status(404).json({ message: 'No dogs found for this user' });
     }
+    return res.status(404).json({ message: 'No dogs found for this user' });
   } catch (err) {
     console.error('Database query error:', err);
     return res.status(500).json({ error: 'Database query error' });
