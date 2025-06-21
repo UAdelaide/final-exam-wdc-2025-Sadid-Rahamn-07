@@ -148,7 +148,30 @@
             }
           })
         },
-        handle
+        handleSignup() {
+          // Handle user signup logic here
+          fetch('/api/users/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              username: this.username,
+              email: this.email,
+              password: this.password,
+              role: this.role,
+              created_at: this.createdAt
+            }),
+            credentials: 'include' // Sends the session cookie
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('Signup successful! ' + data.message);
+              window.location.href = '/'; // Redirect to login page
+            } else {
+              alert('Signup failed: ' + data.message);
+            }
+          });
+        },
 
         //fetches the dogs data from the database
         async fetchDogs_Data() {
