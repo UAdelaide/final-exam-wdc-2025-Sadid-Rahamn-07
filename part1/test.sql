@@ -68,6 +68,7 @@ VALUES
 );
 */
 
+/*
 -- Insert users (only if not exists)
 INSERT IGNORE INTO Users (username, email, password_hash, role) VALUES
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
@@ -108,6 +109,7 @@ VALUES (
   5,
   'Great walk!'
 );
+*/
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE WalkRatings;
 TRUNCATE TABLE WalkApplications;
