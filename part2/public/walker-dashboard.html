@@ -89,6 +89,7 @@
 
             if (data.success) {
               user.value = data.id;
+              
             } else {
               error.value = 'User not found';
             }
@@ -104,7 +105,7 @@
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ walker_id: user })
             });
-            console.log(user);
+
             const result = await res.json();
 
             if (!res.ok) throw new Error(result.error || 'Application failed');
