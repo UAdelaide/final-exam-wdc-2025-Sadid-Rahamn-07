@@ -36,6 +36,7 @@ VALUES
   '2025-06-10 08:00:00'
 );
 */
+/*
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
 (
@@ -52,4 +53,16 @@ VALUES
   (SELECT request_id FROM WalkRequests WHERE location = 'Botanic Gardens' LIMIT 1),
   (SELECT user_id FROM Users WHERE username = 'bobwalker'),
   'rejected'
+);
+*/
+
+INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at)
+VALUES
+(
+  (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+  (SELECT user_id FROM Users WHERE username = 'alice123'),
+  5,
+  'Great walk!',
+  '2025-06-10 08:00:00'
 );
