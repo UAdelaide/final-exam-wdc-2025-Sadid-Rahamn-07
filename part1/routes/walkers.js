@@ -4,7 +4,9 @@ const db = require('../db');
 
 // Route to walkers summary as JSON
 
-router.get('/', async (req, res) => {})
+router.get('/', async (req, res) => {
+    res.json({ message: 'Welcome to the Walkers API' });
+});
 
 
 

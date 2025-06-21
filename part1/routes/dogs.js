@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+router.get('/', async (req, res) => {
+    res.json({ message: 'Welcome to the Walkers API' });
+});
+
 router.get('api/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
