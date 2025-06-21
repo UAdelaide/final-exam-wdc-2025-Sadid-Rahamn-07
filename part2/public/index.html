@@ -51,8 +51,8 @@
           <input v-model="role" type="text" class="form-control" id="user_role" required>
         </div>
         <div class="mb-3">
-          <label for="timestamp" class="form-label">Created at</label>
-          <input v-model="timestamp" type="text" class="form-control" id="timestamp" required>
+            <label class="form-label">Requested Date & Time</label>
+            <input v-model="form.requested_time" type="datetime-local" class="form-control" required>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
