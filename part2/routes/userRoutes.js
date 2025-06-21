@@ -4,7 +4,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
-require('dotenv').config();
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
@@ -44,7 +43,7 @@ router.get('/me', (req, res) => {
 });
 
 // POST login (dummy version)
-router.post('/login', (req, res) => {
+router.post('/api/users/login', (req, res) => {
   // SQL query to check if the user exists
   const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
   //  takes username and password from the request body from vue(fetch('/login')))
