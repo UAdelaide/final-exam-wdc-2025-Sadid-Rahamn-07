@@ -148,6 +148,6 @@ app.get('/session', (req, res) => {
         res.status(401).json({ message: 'No active session' });
     }
 });
-
+*/
 // Export the app instead of listening here
 module.exports = app;
