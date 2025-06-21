@@ -68,4 +68,4 @@ VALUES
 );
 */
 
-SELECT user_id FROM Users WHERE username = 'aliceowner
+SELECT user_id FROM Users WHERE username = 'aliceowner';
