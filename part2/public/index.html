@@ -55,10 +55,11 @@
 
           <div class="mb-2">
             <label for="role" class="form-label">Role</label>
-            <select class="form-select" name="" id="">
-              <option value="owner">Owner</option>
-              <option value="walker">Walker</option>
-            </select>
+            <select v-model="role" class="form-select" id="signup_role" required>
+  <option disabled value="">Select role</option>
+  <option value="owner">Owner</option>
+  <option value="walker">Walker</option>
+</select>
           </div>
 
 
@@ -103,7 +104,7 @@
           password: '',
           dog_photo: '',
           showDiv: true,
-          
+
         };
       },
       methods: {
