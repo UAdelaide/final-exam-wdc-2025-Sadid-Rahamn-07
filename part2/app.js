@@ -9,13 +9,7 @@ require('dotenv').config();
 const app = express();
 
 // database connection
-const db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: 'DogWalkService',
-    connectionLimit: 10
-});
+
 
 // Middleware
 app.use(express.json());
