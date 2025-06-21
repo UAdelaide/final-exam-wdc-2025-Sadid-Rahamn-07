@@ -37,70 +37,70 @@
 
     <!-- Register User -->
     <div class="user_signup_form">
-      <form @submit.prevent="handleSignup">
-        <div class="mb-2">
-          <label for="signup_username" class="form-label">Username</label>
-          <input
-            v-model="username"
-            type="text"
-            class="form-control"
-            id="signup_username"
-            required
-          />
-        </div>
+    <form @submit.prevent="handleSignup">
+      <div class="mb-3">
+        <label for="signup_username" class="form-label">Username</label>
+        <input
+          v-model="username"
+          type="text"
+          class="form-control"
+          id="signup_username"
+          required
+        />
+      </div>
 
-        <div class="mb-2">
-          <label for="signup_email" class="form-label">Email</label>
-          <input
-            v-model="email"
-            type="email"
-            class="form-control"
-            id="signup_email"
-            required
-          />
-        </div>
+      <div class="mb-3">
+        <label for="signup_email" class="form-label">Email</label>
+        <input
+          v-model="email"
+          type="email"
+          class="form-control"
+          id="signup_email"
+          required
+        />
+      </div>
 
-        <div class="mb-2">
-          <label for="signup_password" class="form-label">Password</label>
-          <input
-            v-model="password"
-            type="password"
-            class="form-control"
-            id="signup_password"
-            required
-          />
-        </div>
+      <div class="mb-3">
+        <label for="signup_password" class="form-label">Password</label>
+        <input
+          v-model="password"
+          type="password"
+          class="form-control"
+          id="signup_password"
+          required
+        />
+      </div>
 
-        <div class="mb-2">
-          <label for="signup_role" class="form-label">Role</label>
-          <select
-            v-model="role"
-            class="form-select"
-            id="signup_role"
-            required
-          >
-            <option value="" disabled>Select role</option>
-            <option value="owner">Owner</option>
-            <option value="walker">Walker</option>
-          </select>
-        </div>
+      <div class="mb-3">
+        <label for="signup_role" class="form-label">Role</label>
+        <select
+          v-model="role"
+          class="form-select"
+          id="signup_role"
+          required
+        >
+          <option value="" disabled>Select role</option>
+          <option value="owner">Owner</option>
+          <option value="walker">Walker</option>
+        </select>
+      </div>
 
-        <div class="mb-2">
-          <label for="created_at" class="form-label">Created At (auto)</label>
-          <input
-            :value="createdAt"
-            type="text"
-            class="form-control"
-            id="created_at"
-            disabled
-          />
-        </div>
+      <div class="mb-3">
+        <label for="created_at" class="form-label">Created At (auto)</label>
+        <input
+          :value="createdAt"
+          type="text"
+          class="form-control"
+          id="created_at"
+          disabled
+        />
+      </div>
 
-        <button type="submit" class="btn btn-primary">
-          Register
-        </button>
-      </form>
-    </div>
+      <button type="submit" class="btn btn-primary">
+        Register
+      </button>
+    </form>
+  </div>
 
     <!-- Registered Dogs List -->
     <div class="registered_dog_table">
@@ -131,7 +131,7 @@
           username: '',
           password: '',
           dog_photo: '',
-          showDiv: true
+          showDiv: false
         };
       },
       methods: {
