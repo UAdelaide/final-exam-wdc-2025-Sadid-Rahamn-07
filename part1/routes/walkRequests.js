@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+router.get('/', async (req, res) => {
+    res.json({ message: 'Welcome to the Walkers API' });
+});
+
 // Route to return walkrequests that are open as JSON
 router.get('/open', async (req, res) => {
     try {
