@@ -81,26 +81,26 @@ router.get('/load_user_dogs', (req, res) => {
 
   const username = req.session.user.username;
 
-  // SQL query to get all dogs for the user
-  const query = `
-        SELECT Dogs.name, Dogs.dog_id
-        FROM Dogs
-        INNER JOIN Users ON Dogs.owner_id = Users.user_id
-        WHERE Users.username = ?
-        `;
-  db.query(query, [username], (err, results) => {
-    if (err) {
-      console.error('Database query error:', err);
-      return res.status(500).json({ error: 'Database query error' }); // return here
-    }
+  try {
+    const query = `
+      SELECT Dogs.name, Dogs.dog_id
+      FROM Dogs
+      INNER JOIN Users ON Dogs.owner_id = Users.user_id
+      WHERE Users.username = ?
+    `;
+
+    const [results] = await db.query(query, [username]);
 
     if (results.length > 0) {
-      // console.log('User dogs:', results);
       return res.status(200).json(results);
+    } else {
+      return res.status(404).json({ message: 'No dogs found for this user' });
     }
+  } catch (err) {
+    console.error('Database query error:', err);
+    return res.status(500).json({ error: 'Database query error' });
+  }
 
-    return res.status(404).json({ message: 'No dogs found for this user' });
-  });
 });
 
 // GET all dogs
