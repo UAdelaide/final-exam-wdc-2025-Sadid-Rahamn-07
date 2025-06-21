@@ -34,7 +34,7 @@ router.get('/me', (req, res) => {
   }
   res.json({
     success: true,
-    id: req.session.user.id, // or `req.session.user.id` if you store the ID
+    id: req.session.user.id,
     role: req.session.user.role
   });
 });
