@@ -89,7 +89,7 @@
 
             if (data.success) {
               user.value = {id : data.id};
-              console.log('Current user ID:', user.id);
+              console.log('Current user ID:', user.value.id);
             } else {
               error.value = 'User not found';
             }
