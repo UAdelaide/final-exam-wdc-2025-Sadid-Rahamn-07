@@ -131,7 +131,7 @@ VALUES
   '2025-06-10 10:00:00'
 );
 */
-
+/*
 -- Insert users first
 INSERT INTO Users (username, email, password_hash, role) VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -192,4 +192,4 @@ INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rate
   'Good walk!',
   '2025-06-10 10:00:00'
 );
-
+*/
