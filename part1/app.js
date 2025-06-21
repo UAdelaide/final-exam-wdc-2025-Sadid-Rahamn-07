@@ -39,6 +39,17 @@ let db;
     }
 })();
 
+
+const dogsRouter = require('./routes/dogs');
+const walkRequestsRouter = require('./routes/walkRequests');
+const walkersRouter = require('./routes/walkers');
+
+// Use routers
+app.use('/api/dogs', dogsRouter);
+app.use('/api/walkrequests', walkRequestsRouter);
+app.use('/api/walkers', walkersRouter);
+
+
 // Route to return dogs as JSON
 app.get('api/dogs', async (req, res) => {
     try {
