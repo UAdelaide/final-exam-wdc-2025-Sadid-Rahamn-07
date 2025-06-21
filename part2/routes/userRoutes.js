@@ -3,6 +3,8 @@
 /* eslint-disable object-curly-newline */
 const express = require('express');
 const router = express.Router();
+const mysql = require('mysql2');
+require('dotenv').config();
 const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
