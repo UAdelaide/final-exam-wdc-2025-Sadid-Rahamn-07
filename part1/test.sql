@@ -194,6 +194,8 @@ INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rate
 );
 */
 
+/*
+
 -- Insert Users
 INSERT INTO Users (username, email, password_hash, role)
 VALUES
@@ -260,6 +262,8 @@ VALUES
     'Good walk!',
     '2025-06-10 10:00:00'
   );
+*/
+
 
 
 /*
