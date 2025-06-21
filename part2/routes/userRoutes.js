@@ -33,39 +33,33 @@ router.post('/register', async (req, res) => {
 
 // POST login (final version)
 router.post('/login', async (req, res) => {
-  // SQL query to check if the user exists
-  const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
-  //  takes username and password from the request body from vue(fetch('/login')))
-  const { username, password } = req.body;
-  await db.query(sql, [username, password], (err, results) => {
-    if (err) {
-      console.error('Database query error:', err);
-      return res.status(500).json({ error: 'Database query error' });
-    }
+  try {
+    const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
+    const { username, password } = req.body;
+
+    const [results] = await db.query(sql, [username, password]);
+
     if (results.length > 0) {
-      // User exists, send success response
       const user = results[0];
       req.session.user = {
         id: user.user_id,
         username: user.username,
         role: user.role
       };
-      // checking user session cookies
       console.log('Session user:', req.session.user);
-      // Remove password_hash from the user object before sending it back (security reasons)
       delete user.password_hash;
-      res.status(200).json(
-        {
-          message: 'Successful',
-          user: results[0],
-          success: true
-        }
-      ); // Send the user data back
+      res.status(200).json({
+        message: 'Successful',
+        user,
+        success: true
+      });
     } else {
-      // User does not exist, send error response
       res.status(401).json({ message: 'Failed', error: 'Invalid username or password' });
     }
-  });
+  } catch (err) {
+    console.error('Database query error:', err);
+    res.status(500).json({ error: 'Database query error' });
+  }
 });
 
 // POST logout
