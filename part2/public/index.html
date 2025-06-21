@@ -146,31 +146,32 @@
         },
 
           handleSignup() {
-          const signupData = {
-            username: this.signupUsername,
-            email: this.signupEmail,
-            password: this.signupPassword,
-            role: this.role,
-            created_at: this.createdAt
-          };
+    const signupData = {
+      username: this.signupUsername,
+      email: this.signupEmail,
+      password: this.signupPassword,
+      role: this.role,
+      created_at: this.createdAt
+    };
 
-          fetch('/api/users/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(signupData),
-            credentials: 'include'
-          })
-          .then(res => res.json())
-          .then(data => {
-            if (data.success) {
-              alert('Signup successful');
-              this.showDiv = true; // switch to login
-            } else {
-              alert('Signup failed: ' + data.message);
-            }
-          })
-          .catch(err => alert('Signup error'));
-        }
+    fetch('/api/users/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(signupData),
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert('Signup successful');
+        this.showDiv = true; // switch to login
+      } else {
+        alert('Signup failed: ' + data.message);
+      }
+    })
+    .catch(err => alert('Signup error'));
+  }
+}
         },
 
         //fetches the dogs data from the database
