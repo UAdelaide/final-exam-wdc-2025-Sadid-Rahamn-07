@@ -68,5 +68,43 @@ VALUES
 );
 */
 
-SELECT user_id FROM Users WHERE username = 'aliceowner';
-(SELECT request_id FROM WalkRequests WHERE location = 'Parklands') LIMIT 1;
+-- Insert users (only if not exists)
+INSERT IGNORE INTO Users (username, email, password_hash, role) VALUES
+('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+('aliceowner', 'alice@example.com', 'hashed123', 'owner');
+
+-- Insert dog owned by aliceowner
+INSERT IGNORE INTO Dogs (owner_id, name, size)
+VALUES (
+  (SELECT user_id FROM Users WHERE username = 'aliceowner' LIMIT 1),
+  'Max',
+  'medium'
+);
+
+-- Insert walk request for Max
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+VALUES (
+  (SELECT dog_id FROM Dogs WHERE name = 'Max' LIMIT 1),
+  '2025-06-10 08:00:00',
+  30,
+  'Parklands',
+  'completed'
+);
+
+-- Insert walk application for bobwalker
+INSERT INTO WalkApplications (request_id, walker_id, status)
+VALUES (
+  (SELECT request_id FROM WalkRequests WHERE location = 'Parklands' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker' LIMIT 1),
+  'accepted'
+);
+
+-- Insert rating for bobwalker
+INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments)
+VALUES (
+  (SELECT request_id FROM WalkRequests WHERE location = 'Parklands' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'bobwalker' LIMIT 1),
+  (SELECT user_id FROM Users WHERE username = 'aliceowner' LIMIT 1),
+  5,
+  'Great walk!'
+);
