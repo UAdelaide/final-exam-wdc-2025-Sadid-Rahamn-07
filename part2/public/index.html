@@ -105,7 +105,6 @@
 
       data() {
         return {
-          //
           message: 'Welcome to the Dog Walking Service!',
           username: '',
           password: '',
@@ -160,7 +159,7 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               username: this.new_username,
-              email: this.email,
+              email: this.new_email,
               password: this.new_password,
               role: this.role,
               created_at: this.createdAt
