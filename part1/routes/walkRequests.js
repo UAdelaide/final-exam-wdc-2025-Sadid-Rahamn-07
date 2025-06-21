@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../db');
 
 // Route to return walkrequests that are open as JSON
-app.get('api/walkrequests/open', async (req, res) => {
+router.get('/open', async (req, res) => {
     try {
         const [walkrequests_open] = await db.execute(`
             SELECT
