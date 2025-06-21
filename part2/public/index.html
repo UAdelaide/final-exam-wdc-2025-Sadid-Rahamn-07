@@ -51,8 +51,7 @@
 
       <div class="mb-3">
         <label for="user_email" class="form-label">Email</label>
-        <input
-          v-model="email"
+        <input v-model="email"
           type="email"
           class="form-control"
           id="user_email"
@@ -64,8 +63,8 @@
         <label for="user_role" class="form-label">Role</label>
         <select v-model="role" class="form-select" id="user_role" required>
           <option disabled value="">Select a role</option>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
+          <option value="walker">User</option>
+          <option value="owner">Admin</option>
         </select>
       </div>
 
