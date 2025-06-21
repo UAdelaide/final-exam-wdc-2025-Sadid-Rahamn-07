@@ -1,4 +1,4 @@
-/*
+
 INSERT INTO Users (username, email, password_hash, role)
 VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -35,7 +35,7 @@ VALUES
   'Great walk!',
   '2025-06-10 08:00:00'
 );
-*/
+
 /*
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
