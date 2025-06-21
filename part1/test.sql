@@ -69,4 +69,4 @@ VALUES
 */
 
 SELECT user_id FROM Users WHERE username = 'aliceowner';
-(SELECT request_id FROM WalkRequests WHERE location = 'Parklands')
+(SELECT request_id FROM WalkRequests WHERE location = 'Parklands') LIMIT 1;
