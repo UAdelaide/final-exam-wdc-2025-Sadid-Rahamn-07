@@ -80,6 +80,8 @@ router.post('/logout', (req, res) => {
   });
 });
 
+
+
 // GET current user (me)
 router.get('/me', (req, res) => {
   if (!req.session.user) {
