@@ -10,7 +10,13 @@ const session = require('express-session');
 
 require('dotenv').config();
 
-
+const av = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: 'DogWalkService',
+    connectionLimit: 10
+});
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
@@ -51,13 +57,7 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', (req, res) => {
-  const db = mysql.createPool({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: 'DogWalkService',
-      connectionLimit: 10
-  });
+
   // SQL query to check if the user exists
   const sql = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
   //  takes username and password from the request body from vue(fetch('/login')))
