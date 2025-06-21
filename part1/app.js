@@ -43,7 +43,7 @@ let db;
 
 // Routers
 app.use('/users', require('./routes/users'));
-app.use('/dogs', require('./routes/dogs'));
+app.use('/dogs', require('./routes/index'));
 // Route to return dogs as JSON
 app.get('/dogs', async (req, res) => {
     try {
