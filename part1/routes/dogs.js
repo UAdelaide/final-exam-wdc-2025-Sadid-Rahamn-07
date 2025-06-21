@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-router.get('/', (req, res) => {
-  const sql = `
-    SELECT d.dog_id, d.name, d.size, d.owner_id, u.username AS owner_username
-    FROM Dogs d
-    JOIN Users u ON d.owner_id = u.user_id;
-  `;
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Error fetching dogs:', err);
-      return res.status(500).json({ error: 'Database error' });
+app.get('api/dogs', async (req, res) => {
+    try {
+        const [dogs_data] = await db.execute(`
+            SELECT
+                Dogs.name AS dog_name,
+                Dogs.size,
+                Users.username AS owner_username
+            FROM Dogs
+            JOIN Users ON Dogs.owner_id = Users.user_id
+        `);
+        res.json(dogs_data);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch data' });
     }
-    res.json(results);
-  });
 });
 
 module.exports = router;
