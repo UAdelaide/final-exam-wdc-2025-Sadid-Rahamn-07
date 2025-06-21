@@ -36,48 +36,41 @@
     </div>
 
     <!-- Register User -->
-    <div v-else="!showDiv" class="user_signup_form">
-        <form @submit.prevent="handleSignup" method="post">
-          <div class="mb-2">
-            <label for="username" class="form-label">Username</label>
-            <input v-model="new_username" type="text" class="form-control" id="new_username" required>
-          </div>
-
-          <div class="mb-2">
-            <label for="email" class="form-label">Email</label>
-            <input v-model="new_email" type="text" class="form-control" id="user_email" required>
-          </div>
-
-          <div class="mb-2">
-            <label for="password" class="form-label">password</label>
-            <input v-model="new_password" type="password" class="form-control" id="user_role" required>
-          </div>
-
-          <div class="mb-2">
-            <label for="role" class="form-label">Role</label>
-            <select v-model="role" class="form-select" id="signup_role" required>
-                <option disabled value="">Select role</option>
-                <option value="owner">Owner</option>
-                <option value="walker">Walker</option>
-            </select>
-          </div>
-
-          <div class="mb-2">
-          <label for="created_at" class="form-label">Created At</label>
-          <input
-            :value="createdAt"
-            type="text"
-            class="form-control"
-            id="created_at"
-            readonly
-          />
-          </div>
-
-          <button v-on:click="showDiv=true" type="button" class="btn btn-primary">Login</button>
-          <button  style="float: right;" type="submit" class="btn btn-primary">Signup</button>
-        </form>
-
+    <div v-else class="user_signup_form">
+    <form @submit.prevent="handleSignup" method="post">
+      <div class="mb-2">
+        <label for="signup_username" class="form-label">Username</label>
+        <input v-model="signupUsername" type="text" class="form-control" id="signup_username" required>
       </div>
+
+      <div class="mb-2">
+        <label for="signup_email" class="form-label">Email</label>
+        <input v-model="signupEmail" type="email" class="form-control" id="signup_email" required>
+      </div>
+
+      <div class="mb-2">
+        <label for="signup_password" class="form-label">Password</label>
+        <input v-model="signupPassword" type="password" class="form-control" id="signup_password" required>
+      </div>
+
+      <div class="mb-2">
+        <label for="signup_role" class="form-label">Role</label>
+        <select v-model="role" class="form-select" id="signup_role" required>
+          <option disabled value="">Select role</option>
+          <option value="owner">Owner</option>
+          <option value="walker">Walker</option>
+        </select>
+      </div>
+
+      <div class="mb-2">
+        <label for="created_at" class="form-label">Created At</label>
+        <input :value="createdAt" type="text" class="form-control" id="created_at" readonly />
+      </div>
+
+      <button @click="showDiv = true" type="button" class="btn btn-secondary">Login</button>
+      <button style="float: right;" type="submit" class="btn btn-primary">Signup</button>
+    </form>
+  </div>
 
     <!-- Registered Dogs List -->
     <div class="registered_dog_table">
