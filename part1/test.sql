@@ -67,7 +67,7 @@ VALUES
   '2025-06-10 10:00:00'
 );
 */
-
+------------------------------------
 /*
 -- Insert users (only if not exists)
 INSERT IGNORE INTO Users (username, email, password_hash, role) VALUES
