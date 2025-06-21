@@ -49,7 +49,7 @@ app.use('/api/dogs', dogsRouter);
 app.use('/api/walkrequests', walkRequestsRouter);
 app.use('/api/walkers', walkersRouter);
 
-
+/*
 // Route to return dogs as JSON
 app.get('api/dogs', async (req, res) => {
     try {
@@ -113,5 +113,5 @@ app.get('api/walkers/summary', async (req, res) => {
 });
 
 
-
+*/
 module.exports = app;
