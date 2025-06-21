@@ -28,7 +28,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
-
 // setting up a default user session if not logged in
 app.use((req, res, next) => {
     if (!req.session.user) {
