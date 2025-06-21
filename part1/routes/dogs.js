@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     res.json({ message: 'Welcome to the Walkers API' });
 });
 
-router.get('api/dogs', async (req, res) => {
+router.get('/dogs', async (req, res) => {
     try {
         const [dogs_data] = await db.execute(`
             SELECT
