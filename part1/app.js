@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
 
+app.use(express.static(path.join(__dirname, 'public')));
 var app = express();
 
 app.use(logger('dev'));
@@ -101,6 +102,5 @@ app.get('api/walkers/summary', async (req, res) => {
 });
 
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
