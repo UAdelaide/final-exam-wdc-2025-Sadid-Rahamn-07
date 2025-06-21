@@ -62,7 +62,7 @@ VALUES
   (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
   (SELECT user_id FROM Users WHERE username = 'bobwalker'),
   (SELECT user_id FROM Users WHERE username = 'alice123'),
-  5,
+  4.5,
   'Great walk!',
   '2025-06-10 08:00:00'
 );
