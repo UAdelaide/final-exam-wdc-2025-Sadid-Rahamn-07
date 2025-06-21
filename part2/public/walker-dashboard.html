@@ -88,7 +88,7 @@
             const data = await response.json();
 
             if (data.success) {
-              user.value = data.id;
+              user.value = {id : data.id};
               console.log('Current user ID:', user.id);
             } else {
               error.value = 'User not found';
