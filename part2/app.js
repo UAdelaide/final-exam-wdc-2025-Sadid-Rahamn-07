@@ -135,7 +135,7 @@ app.get('/dogs', (req, res) => {
         res.status(200).json(results); // Send the list of dogs back
     });
 });
-
+*/
 app.get('/session', (req, res) => {
     if (req.session.user) {
         console.log('Session user:', req.session.user);
@@ -146,6 +146,6 @@ app.get('/session', (req, res) => {
         res.status(401).json({ message: 'No active session' });
     }
 });
-*/
+
 // Export the app instead of listening here
 module.exports = app;
