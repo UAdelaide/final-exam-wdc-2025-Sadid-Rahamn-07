@@ -162,13 +162,13 @@
           })
           .then(res => res.json())
           .then(data => {
-          if (data.success) {
-            alert('Signup successful');
-            this.showDiv = true; // switch to login
-          } else {
-            alert('Signup failed: ' + data.message);
-          }
-        })
+            if (data.success) {
+              alert('Signup successful');
+              this.showDiv = true; // switch to login
+            } else {
+              alert('Signup failed: ' + data.message);
+            }
+         })
         .catch(err => alert('Signup error'));
         },
 
