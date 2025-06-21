@@ -221,6 +221,7 @@ VALUES
   ((SELECT dog_id FROM Dogs WHERE name = 'Daisy' LIMIT 1), '2025-06-12 07:15:00', 30, 'North Terrace', 'cancelled'),
   ((SELECT dog_id FROM Dogs WHERE name = 'Rocky' LIMIT 1), '2025-06-12 08:15:00', 15, 'North Terrace', 'completed');
 
+
 -- Insert WalkApplications
 INSERT INTO WalkApplications (request_id, walker_id, status)
 VALUES
